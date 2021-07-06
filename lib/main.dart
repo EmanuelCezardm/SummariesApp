@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:summaries_app/ui/screens/home_page.dart';
+import 'package:summaries_app/ui/styles/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Summaries App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.theme,
       routes: {
         'home': (context) => const HomePage(),
       },
