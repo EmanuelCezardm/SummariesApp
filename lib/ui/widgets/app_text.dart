@@ -12,15 +12,11 @@ class AppText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: fontsize,
-          ),
-        ),
-      ],
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: fontsize,
+      ),
     );
   }
 }
