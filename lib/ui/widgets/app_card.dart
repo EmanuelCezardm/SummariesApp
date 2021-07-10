@@ -7,11 +7,13 @@ class AppCard extends StatelessWidget {
   final String text;
   final bool addIcon;
   final double fontsize;
+  final VoidCallback onPressed;
 
   const AppCard({
     Key? key,
     required this.text,
     required this.fontsize,
+    required this.onPressed,
     this.addIcon = true,
   }) : super(key: key);
 
@@ -19,35 +21,38 @@ class AppCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: AppColors.offWhite,
-      child: Padding(
-        padding: addIcon
-            ? const EdgeInsets.symmetric(horizontal: 8)
-            : const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Title(
-                  color: Colors.amber,
-                  child: AppText(
-                    text: text,
-                    fontsize: fontsize,
+      child: InkWell(
+        onTap: onPressed,
+        child: Padding(
+          padding: addIcon
+              ? const EdgeInsets.symmetric(horizontal: 8)
+              : const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Title(
+                    color: Colors.amber,
+                    child: AppText(
+                      text: text,
+                      fontsize: fontsize,
+                    ),
                   ),
-                ),
-                _makeIcon(context, addIcon),
-              ],
-            ),
-          ],
+                  _makeIcon(context, addIcon),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  _makeIcon(BuildContext context, bool addIcon) {
+  _makeIcon(context, addIcon) {
     if (addIcon) {
       return Card(
         color: AppColors.background,
@@ -55,9 +60,15 @@ class AppCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: GestureDetector(
-          /*onTap: () {
-          Navigator.pushNamed(context, '/');
-        },*/
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              '/',
+              arguments: <String, String>{
+                'name': text,
+              },
+            );
+          },
           child: Container(
             padding: const EdgeInsets.all(8),
             child: const Icon(Icons.add),
