@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:summaries_app/ui/screens/home_page.dart';
+import 'package:summaries_app/ui/screens/home_screen.dart';
 import 'package:summaries_app/ui/styles/app_theme.dart';
 
 void main() {
@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Summaries App',
       theme: AppTheme.theme,
       routes: {
-        'home': (context) => const HomePage(),
+        'home': (context) => const HomeScreen(),
       },
-      home: const HomePage(),
+      home: const HomeScreen(),
     );
   }
 }
