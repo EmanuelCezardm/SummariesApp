@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:summaries_app/ui/styles/app_colors.dart';
+import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
-import 'package:summaries_app/ui/widgets/app_text.dart';
+import 'package:summaries_app/ui/widgets/app_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,8 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final bool isAdmin = false;
-
+  final bool isAdm = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,41 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _buildAppBar() {
-    return AppBar(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const AppText(
-            text: "Summaries App",
-            fontsize: 32,
-          ),
-          _buildNotiButton(() {}),
-        ],
-      ),
-      elevation: 0,
-    );
-  }
-
-  _buildNotiButton(onPressed) {
-    if (isAdmin) {
-      return IconButton(
-        onPressed: onPressed,
-        splashRadius: 16,
-        icon: const Icon(
-          Icons.notifications,
-        ),
-      );
-    } else {
-      return Container();
-    }
+    return const AppAppBar(title: "Summaries App");
   }
 
   _buildDrawer() {
-    return Drawer(
-      child: Container(
-        color: AppColors.background,
-      ),
-    );
+    return const AppDrawer();
   }
 
   _buildBody() {
@@ -70,11 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
           text: "Português",
           fontsize: 28,
           onPressed: () {},
+          addIcon: isAdm,
         ),
         AppCard(
           text: "Biologia",
           fontsize: 28,
           onPressed: () {},
+          addIcon: isAdm,
         ),
       ],
     );
