@@ -21,31 +21,35 @@ class AppCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: AppColors.offWhite,
-      child: InkWell(
-        onTap: onPressed,
-        child: Padding(
-          padding: addIcon
-              ? const EdgeInsets.symmetric(horizontal: 8)
-              : const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Title(
-                    color: Colors.amber,
-                    child: AppText(
-                      text: text,
-                      fontsize: fontsize,
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: InkWell(
+          onTap: onPressed,
+          child: Padding(
+            padding: addIcon
+                ? const EdgeInsets.symmetric(horizontal: 8)
+                : const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Title(
+                      color: Colors.amber,
+                      child: AppText(
+                        text: text,
+                        fontsize: fontsize,
+                      ),
                     ),
-                  ),
-                  _makeIcon(context, addIcon),
-                ],
-              ),
-            ],
+                    _makeIcon(context, addIcon),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
