@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final bool isAdm = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _buildAppBar() {
-    return const AppAppBar(title: "Summaries App");
+    return AppAppBar(
+      title: "Summaries App",
+      size: MediaQuery.of(context).size,
+    );
   }
 
   _buildDrawer() {
