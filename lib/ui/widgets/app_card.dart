@@ -19,6 +19,7 @@ class AppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Card(
       color: AppColors.offWhite,
       child: FittedBox(
@@ -30,25 +31,21 @@ class AppCard extends StatelessWidget {
             padding: addIcon
                 ? const EdgeInsets.symmetric(horizontal: 8)
                 : const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Title(
-                      color: Colors.amber,
-                      child: AppText(
-                        text: text,
-                        fontsize: fontsize,
-                      ),
+            child: SizedBox(
+              height: size.width * .1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Title(
+                    color: Colors.amber,
+                    child: AppText(
+                      text: text,
+                      fontsize: fontsize,
                     ),
-                    _makeIcon(context, addIcon),
-                  ],
-                ),
-              ],
+                  ),
+                  _makeIcon(context, addIcon),
+                ],
+              ),
             ),
           ),
         ),
