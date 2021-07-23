@@ -12,9 +12,9 @@ class AppTheme {
           color: AppColors.darkBlue,
         ),
       ),
-      /*iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: Colors.white70,
-      ),*/
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
+import 'package:summaries_app/ui/widgets/app_bottom_navigation_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
 import 'package:summaries_app/ui/widgets/app_drawer.dart';
 
@@ -20,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: _buildAppBar(),
       drawer: _buildDrawer(),
       body: _buildBody(),
+      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -52,6 +54,12 @@ class _HomeScreenState extends State<HomeScreen> {
           addIcon: isAdm,
         ),
       ],
+    );
+  }
+
+  _buildBottomNavigationBar() {
+    return const AppBottomNavigationBar(
+      subjectsScreen: true,
     );
   }
 }
