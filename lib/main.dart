@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:summaries_app/ui/screens/home_screen.dart';
+import 'package:summaries_app/ui/screens/register_screen.dart';
 import 'package:summaries_app/ui/styles/app_theme.dart';
 
 void main() {
