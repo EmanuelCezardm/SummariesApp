@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
-import 'package:summaries_app/ui/widgets/app_bottom_navigation_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
 import 'package:summaries_app/ui/widgets/app_drawer.dart';
 
@@ -19,9 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      drawer: _buildDrawer(),
+      endDrawer: _buildDrawer(),
       body: _buildBody(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -29,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppAppBar(
       title: "Summaries App",
       size: MediaQuery.of(context).size,
+      subjectScreen: true,
     );
   }
 
@@ -43,23 +42,17 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         AppCard(
           text: "Português",
-          fontsize: 28,
+          fontSize: 28,
           onPressed: () {},
           addIcon: isAdm,
         ),
         AppCard(
           text: "Biologia",
-          fontsize: 28,
+          fontSize: 28,
           onPressed: () {},
           addIcon: isAdm,
         ),
       ],
-    );
-  }
-
-  _buildBottomNavigationBar() {
-    return const AppBottomNavigationBar(
-      subjectsScreen: true,
     );
   }
 }
