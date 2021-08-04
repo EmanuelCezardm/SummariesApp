@@ -5,15 +5,18 @@ class AppTheme {
   static ThemeData get theme {
     return ThemeData(
       scaffoldBackgroundColor: AppColors.background,
-      primaryColor: AppColors.darkBlue,
+      fontFamily: 'Raleway',
+      appBarTheme: const AppBarTheme(
+        color: AppColors.blue,
+      ),
       textTheme: const TextTheme(
         bodyText2: TextStyle(
           fontSize: 18,
-          color: AppColors.darkBlue,
+          color: AppColors.blue,
         ),
       ),
       iconTheme: const IconThemeData(
-        color: Colors.white70,
+        color: AppColors.white,
       ),
     );
   }

@@ -6,13 +6,13 @@ import 'package:summaries_app/ui/widgets/app_text.dart';
 class AppCard extends StatelessWidget {
   final String text;
   final bool addIcon;
-  final double fontsize;
+  final double fontSize;
   final VoidCallback onPressed;
 
   const AppCard({
     Key? key,
     required this.text,
-    required this.fontsize,
+    required this.fontSize,
     required this.onPressed,
     this.addIcon = true,
   }) : super(key: key);
@@ -22,6 +22,9 @@ class AppCard extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return Card(
       color: AppColors.offWhite,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: FittedBox(
         fit: BoxFit.scaleDown,
         alignment: Alignment.centerLeft,
@@ -40,7 +43,7 @@ class AppCard extends StatelessWidget {
                     color: Colors.amber,
                     child: AppText(
                       text: text,
-                      fontsize: fontsize,
+                      fontSize: fontSize,
                     ),
                   ),
                   _makeIcon(context, addIcon),
