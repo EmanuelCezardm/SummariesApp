@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.theme,
       routes: {
         'home': (context) => const HomeScreen(),
+        'register': (context) => const RegisterScreen(),
       },
       home: const HomeScreen(),
     );
