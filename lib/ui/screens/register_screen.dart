@@ -21,12 +21,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.darkBlue,
+      backgroundColor: AppColors.blue,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _buildTitle(size),
-            SizedBox(height: 15),
+            _buildTitle(),
+            const SizedBox(height: 24),
             _buildForm(size),
           ],
         ),
@@ -34,11 +34,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  _buildTitle(size) {
-    return Container(
-      width: size.width,
-      height: size.height * .2,
-      padding: EdgeInsets.only(
+  _buildTitle() {
+    return Padding(
+      padding: const EdgeInsets.only(
         top: 40,
       ),
       child: Column(
@@ -74,7 +72,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 fontSize: 20,
                 fontFamily: "Trajan Pro",
                 fontWeight: FontWeight.bold,
-                color: AppColors.offWhite),
+                color: AppColors.white),
           ),
         ],
       ),
@@ -88,8 +86,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Container(
-            height: size.height * .9,
-            decoration: BoxDecoration(
+            height: size.height * .8,
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(50),
@@ -107,13 +105,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       decoration: const InputDecoration(
                         prefixIcon: Icon(
                           Icons.person_outline,
-                          color: AppColors.darkBlue,
+                          color: AppColors.blue,
                           size: 40,
                         ),
                         labelText: 'Nome',
                         hintText: 'Digite seu nome',
                         labelStyle: TextStyle(
-                          color: AppColors.darkBlue,
+                          color: AppColors.blue,
                         ),
                       ),
                       keyboardType: TextInputType.name,
@@ -128,13 +126,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       decoration: const InputDecoration(
                         prefixIcon: Icon(
                           Icons.phone_android_outlined,
-                          color: AppColors.darkBlue,
+                          color: AppColors.blue,
                           size: 40,
                         ),
                         labelText: 'Telefone',
                         hintText: 'Digite o número de telefone',
                         labelStyle: TextStyle(
-                          color: AppColors.darkBlue,
+                          color: AppColors.blue,
                         ),
                       ),
                       keyboardType: TextInputType.phone,
@@ -148,13 +146,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       decoration: const InputDecoration(
                         prefixIcon: Icon(
                           Icons.email_outlined,
-                          color: AppColors.darkBlue,
+                          color: AppColors.blue,
                           size: 40,
                         ),
                         labelText: 'E-mail',
                         hintText: 'Digite seu e-mail',
                         labelStyle: TextStyle(
-                          color: AppColors.darkBlue,
+                          color: AppColors.blue,
                         ),
                       ),
                       keyboardType: TextInputType.emailAddress,
@@ -169,13 +167,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         decoration: const InputDecoration(
                           prefixIcon: Icon(
                             Icons.lock_outlined,
-                            color: AppColors.darkBlue,
+                            color: AppColors.blue,
                             size: 40,
                           ),
                           labelText: 'Senha',
                           hintText: 'Digite sua senha',
                           labelStyle: TextStyle(
-                            color: AppColors.darkBlue,
+                            color: AppColors.blue,
                           ),
                         ),
                         keyboardType: TextInputType.visiblePassword),
@@ -183,9 +181,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 64,
                     ),
                     _buildButtom(size),
-                    const SizedBox(
-                      height: 88,
-                    ),
                   ],
                 ),
               ),
@@ -249,7 +244,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          primary: AppColors.rose,
+          primary: AppColors.lilas,
           padding: const EdgeInsets.symmetric(vertical: 20),
           textStyle: const TextStyle(
             color: Colors.black,
@@ -257,7 +252,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ),
         onPressed: () {
-          print('sucesso');
+          debugPrint('sucesso');
         },
         icon: const Icon(
           Icons.check,
