@@ -22,6 +22,9 @@ class AppCard extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return Card(
       color: AppColors.offWhite,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: FittedBox(
         fit: BoxFit.scaleDown,
         alignment: Alignment.centerLeft,

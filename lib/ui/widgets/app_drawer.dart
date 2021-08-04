@@ -43,12 +43,12 @@ class AppDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.contact_mail_outlined,
+                Icons.supervisor_account_rounded,
                 size: 28,
                 color: AppColors.blue,
               ),
               title: const AppText(
-                text: 'Contatos',
+                text: 'Fale Conosco',
                 fontSize: 24,
                 fontFamily: 'Otomanopee One',
                 color: AppColors.blue,
