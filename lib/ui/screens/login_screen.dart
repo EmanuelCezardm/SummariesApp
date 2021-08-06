@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginState createState() => _LoginState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
 bool passwordVisible = false;
 
-class _LoginState extends State<Login> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -21,33 +21,34 @@ class _LoginState extends State<Login> {
   get onPressed => null;
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
-          buildTitle(),
-          buildForm(),
+          _buildTitle(size),
+          _buildForm(size),
         ]),
       ),
     );
   }
 
-  buildTitle() {
+  _buildTitle(size) {
     return Container(
-      width: 800,
-      height: 250,
+      width: size.width,
+      height: size.height * .2,
       color: AppColors.blue,
-      padding: EdgeInsets.only(top: 100),
+      padding: EdgeInsets.only(top: 35),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Login',
             style: TextStyle(
                 fontSize: 80, fontWeight: FontWeight.w500, color: Colors.white),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text(
+          const Text(
             'Bem-vindo de volta',
             style: TextStyle(
                 fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
@@ -57,12 +58,12 @@ class _LoginState extends State<Login> {
     );
   }
 
-  buildForm() {
+  _buildForm(size) {
     return Stack(
       children: <Widget>[
         Container(
           padding: const EdgeInsets.only(left: 5, right: 5, top: 0),
-          height: 650,
+          height: size.height * .9,
           width: double.infinity,
           color: AppColors.blue,
           child: Container(
@@ -81,14 +82,8 @@ class _LoginState extends State<Login> {
                     children: [
                       TextFormField(
                         controller: _emailController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'O campo é obrigatório!';
-                          }
-
-                          return null;
-                        },
-                        decoration: InputDecoration(
+                        validator: _emailValidator(),
+                        decoration: const InputDecoration(
                           prefixIcon: const Icon(
                             Icons.email_outlined,
                             color: AppColors.blue,
@@ -102,24 +97,16 @@ class _LoginState extends State<Login> {
                         ),
                         keyboardType: TextInputType.text,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       TextFormField(
                         controller: _passwordController,
                         keyboardType: TextInputType.visiblePassword,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'O campo é obrigatório!';
-                          }
-                          if (value.length < 5) {
-                            return 'O campo deve ter pelo menos 8 caracteres';
-                          }
-                          return null;
-                        },
+                        validator: _senhaValidator(),
                         obscureText: passwordVisible,
                         decoration: InputDecoration(
                           prefixIcon: const Icon(
@@ -129,16 +116,7 @@ class _LoginState extends State<Login> {
                           ),
                           labelText: 'Senha',
                           hintText: 'Digite sua senha',
-                          suffixIcon: IconButton(
-                            icon: passwordVisible
-                                ? Icon(Icons.visibility_outlined)
-                                : Icon(Icons.visibility_off_outlined),
-                            iconSize: 30,
-                            onPressed: () => setState(() => passwordVisible
-                                ? passwordVisible = false
-                                : passwordVisible = true),
-                            color: AppColors.blue,
-                          ),
+                          suffixIcon: _buildVisibleIconButton(),
                           labelStyle: TextStyle(
                             color: AppColors.blue,
                           ),
@@ -147,9 +125,9 @@ class _LoginState extends State<Login> {
                       SizedBox(
                         height: 80,
                       ),
-                      buildSenha(),
-                      buildButtom(),
-                      buildLink(),
+                      _buildSenha(),
+                      _buildButtom(),
+                      _buildLink(),
                     ],
                   ),
                 ),
@@ -159,10 +137,10 @@ class _LoginState extends State<Login> {
     );
   }
 
-  buildSenha() {
+  _buildSenha() {
     return GestureDetector(
       onTap: () {
-        print('Foi clicado');
+        debugPrint('Foi clicado');
       },
       child: Container(
         alignment: Alignment.topRight,
@@ -182,7 +160,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  buildButtom() {
+  _buildButtom() {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         primary: AppColors.blue,
@@ -200,14 +178,14 @@ class _LoginState extends State<Login> {
         Icons.check,
         size: 40,
       ),
-      label: Text('Entrar'),
+      label: const Text('Entrar'),
     );
   }
 
-  buildLink() {
+  _buildLink() {
     return GestureDetector(
       onTap: () {
-        print('Foi clicado');
+        debugPrint('Foi clicado');
       },
       child: Container(
         padding: const EdgeInsets.only(
@@ -223,6 +201,44 @@ class _LoginState extends State<Login> {
           ),
         ),
       ),
+    );
+  }
+
+  _emailValidator() {
+    (value) {
+      if (value == null || value.isEmpty) {
+        return 'O campo é obrigatório!';
+      }
+      if (value.length < 8) {
+        return 'O campo deve ter pelo menos 8 caracteres';
+      } else if (!value.contains("@")) {
+        return "O e-mail precisa do @";
+      }
+      return null;
+    };
+  }
+
+  _senhaValidator() {
+    (value) {
+      if (value == null || value.isEmpty) {
+        return 'O campo é obrigatório!';
+      }
+      if (value.length < 9) {
+        return 'O campo deve ter pelo menos 8 caracteres';
+      }
+      return null;
+    };
+  }
+
+  _buildVisibleIconButton() {
+    return IconButton(
+      icon: passwordVisible
+          ? Icon(Icons.visibility_outlined)
+          : Icon(Icons.visibility_off_outlined),
+      iconSize: 30,
+      onPressed: () => setState(() =>
+          passwordVisible ? passwordVisible = false : passwordVisible = true),
+      color: AppColors.blue,
     );
   }
 }
