@@ -5,9 +5,9 @@ class AppTheme {
   static ThemeData get theme {
     return ThemeData(
       scaffoldBackgroundColor: AppColors.background,
-      primaryColor: AppColors.blue,
+      fontFamily: 'Raleway',
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.blue,
+        color: AppColors.blue,
       ),
       textTheme: const TextTheme(
         bodyText2: TextStyle(
@@ -15,9 +15,9 @@ class AppTheme {
           color: AppColors.blue,
         ),
       ),
-      /*iconTheme: IconThemeData(
-        color: Colors.white70,
-      ),*/
+      iconTheme: const IconThemeData(
+        color: AppColors.white,
+      ),
     );
   }
 }

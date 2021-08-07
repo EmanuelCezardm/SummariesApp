@@ -2,12 +2,16 @@ import 'package:flutter/cupertino.dart';
 
 class AppText extends StatelessWidget {
   final String text;
-  final double fontsize;
+  final double fontSize;
+  final String fontFamily;
+  final Color? color;
 
   const AppText({
     Key? key,
     this.text = '',
-    this.fontsize = 16,
+    this.fontSize = 16,
+    this.fontFamily = 'Raleway',
+    this.color,
   }) : super(key: key);
 
   @override
@@ -15,7 +19,9 @@ class AppText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: fontsize,
+        fontSize: fontSize,
+        fontFamily: fontFamily,
+        color: color,
       ),
     );
   }
