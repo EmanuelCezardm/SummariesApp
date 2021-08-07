@@ -13,79 +13,92 @@ class AppDrawer extends StatelessWidget {
         color: AppColors.background,
         child: ListView(
           children: [
-            ListTile(
-              leading: const Icon(
-                Icons.account_circle_outlined,
-                size: 28,
-                color: AppColors.blue,
-              ),
-              title: const AppText(
+            Container(
+              child: _buildListTile(
+                icon: Icons.account_circle_outlined,
                 text: 'Perfil',
-                fontSize: 24,
-                fontFamily: 'Otomanopee One',
-                color: AppColors.blue,
+                onTap: () {},
               ),
-              onTap: () {},
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.star_border_outlined,
-                size: 28,
-                color: AppColors.blue,
-              ),
-              title: const AppText(
+            Container(
+              child: _buildListTile(
+                icon: Icons.star_border_outlined,
                 text: 'Favoritos',
-                fontSize: 24,
-                fontFamily: 'Otomanopee One',
-                color: AppColors.blue,
+                onTap: () {},
               ),
-              onTap: () {},
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.supervisor_account_rounded,
-                size: 28,
-                color: AppColors.blue,
-              ),
-              title: const AppText(
+            Container(
+              child: _buildListTile(
+                icon: Icons.supervisor_account_rounded,
                 text: 'Fale Conosco',
-                fontSize: 24,
-                fontFamily: 'Otomanopee One',
-                color: AppColors.blue,
+                onTap: () {
+                  _functionFaleConosco(context);
+                },
               ),
-              onTap: () {},
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.info_outline,
-                size: 28,
-                color: AppColors.blue,
-              ),
-              title: const AppText(
+            Container(
+              child: _buildListTile(
+                icon: Icons.info_outlined,
                 text: 'Sobre',
-                fontSize: 24,
-                fontFamily: 'Otomanopee One',
-                color: AppColors.blue,
+                onTap: () {},
               ),
-              onTap: () {},
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.logout_outlined,
-                size: 28,
-                color: AppColors.blue,
-              ),
-              title: const AppText(
+            Container(
+              child: _buildListTile(
+                icon: Icons.logout_outlined,
                 text: 'Sair',
-                fontSize: 24,
-                fontFamily: 'Otomanopee One',
-                color: AppColors.blue,
+                onTap: () {},
               ),
-              onTap: () {},
             ),
           ],
         ),
       ),
+    );
+  }
+
+  _buildListTile({icon, text, onTap}) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        size: 28,
+        color: AppColors.blue,
+      ),
+      title: AppText(
+        text: text,
+        fontSize: 24,
+        fontFamily: 'Otomanopee One',
+        color: AppColors.blue,
+      ),
+      onTap: onTap,
+    );
+  }
+
+  _functionFaleConosco(context) {
+    return showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          actionsAlignment: MainAxisAlignment.center,
+          backgroundColor: AppColors.background,
+          title: const AppText(
+            text: 'fulano@gmail.com',
+            align: TextAlign.center,
+          ),
+          actions: [
+            CupertinoButton(
+              child: const AppText(
+                text: 'Fechar',
+                color: AppColors.blue,
+                align: TextAlign.center,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

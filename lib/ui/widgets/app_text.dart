@@ -5,6 +5,7 @@ class AppText extends StatelessWidget {
   final double fontSize;
   final String fontFamily;
   final Color? color;
+  final TextAlign align;
 
   const AppText({
     Key? key,
@@ -12,12 +13,14 @@ class AppText extends StatelessWidget {
     this.fontSize = 16,
     this.fontFamily = 'Raleway',
     this.color,
+    this.align = TextAlign.justify,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: align,
       style: TextStyle(
         fontSize: fontSize,
         fontFamily: fontFamily,
