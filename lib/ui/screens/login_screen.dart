@@ -23,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.blue,
       body: SingleChildScrollView(
         child: Column(children: [
           _buildTitle(size),
@@ -36,19 +37,18 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       width: size.width,
       height: size.height * .2,
-      color: AppColors.blue,
-      padding: EdgeInsets.only(top: 35),
+      padding: const EdgeInsets.only(top: 35),
       child: Column(
-        children: [
-          const Text(
+        children: const [
+          Text(
             'Login',
             style: TextStyle(
                 fontSize: 80, fontWeight: FontWeight.w500, color: Colors.white),
           ),
-          const SizedBox(
+          SizedBox(
             height: 10,
           ),
-          const Text(
+          Text(
             'Bem-vindo de volta',
             style: TextStyle(
                 fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
@@ -62,16 +62,14 @@ class _LoginScreenState extends State<LoginScreen> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: const EdgeInsets.only(left: 5, right: 5, top: 0),
-          height: size.height * .9,
-          width: double.infinity,
-          color: AppColors.blue,
+          padding: const EdgeInsets.only(left: 5, right: 5, top: 24),
+          height: size.height * .8,
           child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    topLeft: const Radius.circular(50),
-                    topRight: const Radius.circular(50),
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
                   )),
               child: Container(
                 margin:
@@ -84,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _emailController,
                         validator: _emailValidator(),
                         decoration: const InputDecoration(
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.email_outlined,
                             color: AppColors.blue,
                             size: 40,
@@ -117,13 +115,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           labelText: 'Senha',
                           hintText: 'Digite sua senha',
                           suffixIcon: _buildVisibleIconButton(),
-                          labelStyle: TextStyle(
+                          labelStyle: const TextStyle(
                             color: AppColors.blue,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 80,
+                      const SizedBox(
+                        height: 56,
                       ),
                       _buildSenha(),
                       _buildButtom(),
@@ -164,17 +162,17 @@ class _LoginScreenState extends State<LoginScreen> {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         primary: AppColors.blue,
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: 10,
           horizontal: 50,
         ),
-        textStyle: TextStyle(
+        textStyle: const TextStyle(
           color: Colors.black,
           fontSize: 30,
         ),
       ),
       onPressed: () {},
-      icon: Icon(
+      icon: const Icon(
         Icons.check,
         size: 40,
       ),
@@ -233,8 +231,8 @@ class _LoginScreenState extends State<LoginScreen> {
   _buildVisibleIconButton() {
     return IconButton(
       icon: passwordVisible
-          ? Icon(Icons.visibility_outlined)
-          : Icon(Icons.visibility_off_outlined),
+          ? const Icon(Icons.visibility_outlined)
+          : const Icon(Icons.visibility_off_outlined),
       iconSize: 30,
       onPressed: () => setState(() =>
           passwordVisible ? passwordVisible = false : passwordVisible = true),

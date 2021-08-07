@@ -5,11 +5,14 @@ class AppTheme {
   static ThemeData get theme {
     return ThemeData(
       scaffoldBackgroundColor: AppColors.background,
-      primaryColor: AppColors.darkBlue,
+      primaryColor: AppColors.blue,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: AppColors.blue,
+      ),
       textTheme: const TextTheme(
         bodyText2: TextStyle(
           fontSize: 18,
-          color: AppColors.darkBlue,
+          color: AppColors.blue,
         ),
       ),
       /*iconTheme: IconThemeData(
