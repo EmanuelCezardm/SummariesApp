@@ -82,12 +82,16 @@ class AppDrawer extends StatelessWidget {
           actionsAlignment: MainAxisAlignment.center,
           backgroundColor: AppColors.background,
           title: const AppText(
-            text: 'fulano@gmail.com',
+            fontSize: 20,
+            text: 'SummariesApp@gmail.com',
             align: TextAlign.center,
+            fontFamily: 'Raleway',
           ),
           actions: [
             CupertinoButton(
               child: const AppText(
+                fontSize: 20,
+                fontFamily: 'Raleway',
                 text: 'Fechar',
                 color: AppColors.blue,
                 align: TextAlign.center,
