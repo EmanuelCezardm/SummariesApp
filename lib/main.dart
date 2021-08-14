@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/screens/home_screen.dart';
 import 'package:summaries_app/ui/screens/register_screen.dart';
+import 'package:summaries_app/ui/screens/login_screen.dart';
 import 'package:summaries_app/ui/styles/app_theme.dart';
 
 void main() {
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
       title: 'Summaries App',
       theme: AppTheme.theme,
       routes: {
-        'home': (context) => const HomeScreen(),
-        'register': (context) => const RegisterScreen(),
+        '/home': (context) => const HomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/register': (context) => const RegisterScreen(),
       },
-      home: const RegisterScreen(),
+      home: const LoginScreen(),
     );
   }
 }
