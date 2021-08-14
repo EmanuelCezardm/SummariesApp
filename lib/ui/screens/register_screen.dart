@@ -16,7 +16,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
+  bool passwordVisible = true;
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -86,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Container(
-            height: size.height * .8,
+            height: size.height * .85,
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.vertical(
@@ -161,22 +161,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 20,
                     ),
                     TextFormField(
-                        controller: _passwordController,
-                        validator: _senhaValidator(),
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.lock_outlined,
-                            color: AppColors.blue,
-                            size: 40,
-                          ),
-                          labelText: 'Senha',
-                          hintText: 'Digite sua senha',
-                          labelStyle: TextStyle(
-                            color: AppColors.blue,
-                          ),
+                      controller: _passwordController,
+                      validator: _senhaValidator(),
+                      obscureText: passwordVisible,
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(
+                          Icons.lock_outline,
+                          color: AppColors.blue,
+                          size: 40,
                         ),
-                        keyboardType: TextInputType.visiblePassword),
+                        labelText: 'Senha',
+                        hintText: 'Digite sua senha',
+                        labelStyle: TextStyle(
+                          color: AppColors.blue,
+                        ),
+                        suffixIcon: IconButton(
+                          icon: passwordVisible
+                              ? Icon(Icons.visibility_outlined)
+                              : Icon(Icons.visibility_off_outlined),
+                          iconSize: 30,
+                          onPressed: () => setState(() => passwordVisible
+                              ? passwordVisible = false
+                              : passwordVisible = true),
+                          color: AppColors.blue,
+                        ),
+                      ),
+                      keyboardType: TextInputType.visiblePassword,
+                    ),
                     const SizedBox(
                       height: 64,
                     ),
@@ -244,7 +255,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          primary: AppColors.lilas,
+          primary: AppColors.blue,
           padding: const EdgeInsets.symmetric(vertical: 20),
           textStyle: const TextStyle(
             color: Colors.black,
