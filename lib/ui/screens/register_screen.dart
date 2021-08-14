@@ -172,13 +172,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         labelText: 'Senha',
                         hintText: 'Digite sua senha',
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                           color: AppColors.blue,
                         ),
                         suffixIcon: IconButton(
                           icon: passwordVisible
-                              ? Icon(Icons.visibility_outlined)
-                              : Icon(Icons.visibility_off_outlined),
+                              ? const Icon(Icons.visibility_outlined)
+                              : const Icon(Icons.visibility_off_outlined),
                           iconSize: 30,
                           onPressed: () => setState(() => passwordVisible
                               ? passwordVisible = false
