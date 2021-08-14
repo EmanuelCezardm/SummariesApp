@@ -15,9 +15,6 @@ class AppTheme {
           color: AppColors.blue,
         ),
       ),
-      iconTheme: const IconThemeData(
-        color: AppColors.white,
-      ),
     );
   }
 }
