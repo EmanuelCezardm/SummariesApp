@@ -2,20 +2,29 @@ import 'package:flutter/cupertino.dart';
 
 class AppText extends StatelessWidget {
   final String text;
-  final double fontsize;
+  final double fontSize;
+  final String fontFamily;
+  final Color? color;
+  final TextAlign align;
 
   const AppText({
     Key? key,
     this.text = '',
-    this.fontsize = 16,
+    this.fontSize = 16,
+    this.fontFamily = 'Raleway',
+    this.color,
+    this.align = TextAlign.justify,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: align,
       style: TextStyle(
-        fontSize: fontsize,
+        fontSize: fontSize,
+        fontFamily: fontFamily,
+        color: color,
       ),
     );
   }
