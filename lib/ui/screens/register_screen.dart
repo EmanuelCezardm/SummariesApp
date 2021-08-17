@@ -263,7 +263,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ),
         onPressed: () {
-          debugPrint('sucesso');
+          Navigator.popAndPushNamed(context, '/login');
         },
         icon: const Icon(
           Icons.check,

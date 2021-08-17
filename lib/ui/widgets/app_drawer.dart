@@ -17,7 +17,9 @@ class AppDrawer extends StatelessWidget {
               child: _buildListTile(
                 icon: Icons.account_circle_outlined,
                 text: 'Perfil',
-                onTap: () {},
+                onTap: () {
+                  Navigator.popAndPushNamed(context, '/profile');
+                },
               ),
             ),
             Container(
