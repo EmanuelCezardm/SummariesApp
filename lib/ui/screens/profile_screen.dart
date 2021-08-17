@@ -33,6 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         onPressed: () {
           Navigator.pop(context);
+          Navigator.popAndPushNamed(context, '/home');
         },
       ),
     );
