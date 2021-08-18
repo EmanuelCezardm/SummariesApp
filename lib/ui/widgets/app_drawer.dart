@@ -20,51 +20,44 @@ class AppDrawer extends StatelessWidget {
 
   List<Widget> _buildListView(BuildContext context) {
     return [
-      Container(
-        child: _buildListTile(
-          icon: Icons.account_circle_outlined,
-          text: 'Perfil',
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, '/profile');
-          },
-        ),
+      _buildListTile(
+        icon: Icons.account_circle_outlined,
+        text: 'Perfil',
+        onTap: () {
+          Navigator.pop(context);
+          Navigator.pushNamed(context, '/profile');
+        },
       ),
-      Container(
-        child: _buildListTile(
-          icon: Icons.star_border_outlined,
-          text: 'Favoritos',
-          onTap: () {},
-        ),
+      _buildListTile(
+        icon: Icons.star_border_outlined,
+        text: 'Favoritos',
+        onTap: () {
+          Navigator.pop(context);
+          Navigator.pushNamed(context, '/favorites');
+        },
       ),
-      Container(
-        child: _buildListTile(
-          icon: Icons.supervisor_account_rounded,
-          text: 'Fale Conosco',
-          onTap: () {
-            _functionFaleConosco(context);
-          },
-        ),
+      _buildListTile(
+        icon: Icons.supervisor_account_rounded,
+        text: 'Fale Conosco',
+        onTap: () {
+          _functionFaleConosco(context);
+        },
       ),
-      Container(
-        child: _buildListTile(
-          icon: Icons.info_outlined,
-          text: 'Sobre',
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, '/about');
-          },
-        ),
+      _buildListTile(
+        icon: Icons.info_outlined,
+        text: 'Sobre',
+        onTap: () {
+          Navigator.pop(context);
+          Navigator.pushNamed(context, '/about');
+        },
       ),
-      Container(
-        child: _buildListTile(
-          icon: Icons.logout_outlined,
-          text: 'Sair',
-          onTap: () {
-            Navigator.popUntil(context, ModalRoute.withName('/home'));
-            Navigator.popAndPushNamed(context, '/login');
-          },
-        ),
+      _buildListTile(
+        icon: Icons.logout_outlined,
+        text: 'Sair',
+        onTap: () {
+          Navigator.popUntil(context, ModalRoute.withName('/home'));
+          Navigator.popAndPushNamed(context, '/login');
+        },
       ),
     ];
   }
