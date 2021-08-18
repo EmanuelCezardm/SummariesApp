@@ -12,48 +12,58 @@ class AppDrawer extends StatelessWidget {
       child: Container(
         color: AppColors.background,
         child: ListView(
-          children: [
-            Container(
-              child: _buildListTile(
-                icon: Icons.account_circle_outlined,
-                text: 'Perfil',
-                onTap: () {},
-              ),
-            ),
-            Container(
-              child: _buildListTile(
-                icon: Icons.star_border_outlined,
-                text: 'Favoritos',
-                onTap: () {},
-              ),
-            ),
-            Container(
-              child: _buildListTile(
-                icon: Icons.supervisor_account_rounded,
-                text: 'Fale Conosco',
-                onTap: () {
-                  _functionFaleConosco(context);
-                },
-              ),
-            ),
-            Container(
-              child: _buildListTile(
-                icon: Icons.info_outlined,
-                text: 'Sobre',
-                onTap: () {},
-              ),
-            ),
-            Container(
-              child: _buildListTile(
-                icon: Icons.logout_outlined,
-                text: 'Sair',
-                onTap: () {},
-              ),
-            ),
-          ],
+          children: _buildListView(context),
         ),
       ),
     );
+  }
+
+  List<Widget> _buildListView(BuildContext context) {
+    return [
+      Container(
+        child: _buildListTile(
+          icon: Icons.account_circle_outlined,
+          text: 'Perfil',
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.popAndPushNamed(context, '/profile');
+          },
+        ),
+      ),
+      Container(
+        child: _buildListTile(
+          icon: Icons.star_border_outlined,
+          text: 'Favoritos',
+          onTap: () {},
+        ),
+      ),
+      Container(
+        child: _buildListTile(
+          icon: Icons.supervisor_account_rounded,
+          text: 'Fale Conosco',
+          onTap: () {
+            _functionFaleConosco(context);
+          },
+        ),
+      ),
+      Container(
+        child: _buildListTile(
+          icon: Icons.info_outlined,
+          text: 'Sobre',
+          onTap: () {},
+        ),
+      ),
+      Container(
+        child: _buildListTile(
+          icon: Icons.logout_outlined,
+          text: 'Sair',
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.popAndPushNamed(context, '/login');
+          },
+        ),
+      ),
+    ];
   }
 
   _buildListTile({icon, text, onTap}) {

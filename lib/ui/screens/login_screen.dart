@@ -11,7 +11,7 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-bool passwordVisible = false;
+bool passwordVisible = true;
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
@@ -171,7 +171,9 @@ class _LoginScreenState extends State<LoginScreen> {
           fontSize: 30,
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.popAndPushNamed(context, '/home');
+      },
       icon: const Icon(
         Icons.check,
         size: 40,
@@ -183,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
   _buildLink() {
     return GestureDetector(
       onTap: () {
-        debugPrint('Foi clicado');
+        Navigator.popAndPushNamed(context, '/register');
       },
       child: Container(
         padding: const EdgeInsets.only(

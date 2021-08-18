@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/screens/contents_screen.dart';
+import 'package:summaries_app/ui/screens/about_screen.dart';
 import 'package:summaries_app/ui/screens/home_screen.dart';
+import 'package:summaries_app/ui/screens/profile_screen.dart';
+import 'package:summaries_app/ui/screens/register_screen.dart';
 import 'package:summaries_app/ui/screens/login_screen.dart';
 import 'package:summaries_app/ui/styles/app_theme.dart';
 
@@ -26,8 +29,11 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/contents': (context) => const ContentsScreen(),
+        '/about': (context) => const AboutScreen(),
+        '/register': (context) => const RegisterScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
-      home: const ContentsScreen(),
+      home: const LoginScreen(),
     );
   }
 }
