@@ -33,7 +33,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         onPressed: () {
           Navigator.pop(context);
-          Navigator.popAndPushNamed(context, '/home');
         },
       ),
     );
@@ -226,7 +225,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.popAndPushNamed(context, '/home');
+                  Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColors.blue,
@@ -239,7 +238,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: const Text(
                   "SALVAR",
                   style: TextStyle(
-                      fontSize: 14, letterSpacing: 2.2, color: Colors.white),
+                    fontSize: 14,
+                    letterSpacing: 2.2,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

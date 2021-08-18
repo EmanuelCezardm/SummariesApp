@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
       title: 'Summaries App',
       theme: AppTheme.theme,
       routes: {
-        '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
+        '/home': (context) => const HomeScreen(),
         '/contents': (context) => const ContentsScreen(),
         '/about': (context) => const AboutScreen(),
         '/register': (context) => const RegisterScreen(),
