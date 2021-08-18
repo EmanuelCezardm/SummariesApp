@@ -43,31 +43,26 @@ class _ContentsScreenState extends State<ContentsScreen> {
           text: "Ecologia",
           fontSize: 28,
           onPressed: () {},
-          addIcon: isAdm,
         ),
         AppCard(
           text: "Citologia",
           fontSize: 28,
           onPressed: () {},
-          addIcon: isAdm,
         ),
         AppCard(
           text: "Fisiologia Humana",
           fontSize: 28,
           onPressed: () {},
-          addIcon: isAdm,
         ),
         AppCard(
           text: "Genética",
           fontSize: 28,
           onPressed: () {},
-          addIcon: isAdm,
         ),
         AppCard(
           text: "Bioquímica",
           fontSize: 28,
           onPressed: () {},
-          addIcon: isAdm,
         ),
       ],
     );

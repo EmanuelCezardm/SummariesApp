@@ -26,7 +26,7 @@ class AppDrawer extends StatelessWidget {
           text: 'Perfil',
           onTap: () {
             Navigator.pop(context);
-            Navigator.popAndPushNamed(context, '/profile');
+            Navigator.pushNamed(context, '/profile');
           },
         ),
       ),
@@ -50,7 +50,10 @@ class AppDrawer extends StatelessWidget {
         child: _buildListTile(
           icon: Icons.info_outlined,
           text: 'Sobre',
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/about');
+          },
         ),
       ),
       Container(
@@ -58,7 +61,7 @@ class AppDrawer extends StatelessWidget {
           icon: Icons.logout_outlined,
           text: 'Sair',
           onTap: () {
-            Navigator.pop(context);
+            Navigator.popUntil(context, ModalRoute.withName('/home'));
             Navigator.popAndPushNamed(context, '/login');
           },
         ),
@@ -89,7 +92,7 @@ class AppDrawer extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-      // actionsAlignment: MainAxisAlignment.center,
+          actionsAlignment: MainAxisAlignment.center,
           backgroundColor: AppColors.background,
           title: const AppText(
             fontSize: 20,

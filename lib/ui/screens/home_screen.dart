@@ -12,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final bool isAdm = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,20 +35,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _buildBody() {
     return ListView(
-      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+      padding: const EdgeInsets.all(8),
       physics: const BouncingScrollPhysics(),
       children: [
         AppCard(
-          text: "Português",
-          fontSize: 28,
-          onPressed: () {},
-          addIcon: isAdm,
-        ),
-        AppCard(
           text: "Biologia",
           fontSize: 28,
-          onPressed: () {},
-          addIcon: isAdm,
+          onPressed: () {
+            Navigator.pushNamed(context, '/contents');
+          },
+          addIcon: false,
         ),
       ],
     );
