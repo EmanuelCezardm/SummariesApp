@@ -34,7 +34,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         AppCard(
           text: "Conteúdo favoritado",
           fontSize: 28,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/summaries');
+          },
           addIcon: false,
         ),
       ],

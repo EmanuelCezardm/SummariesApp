@@ -185,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
   _buildLink() {
     return GestureDetector(
       onTap: () {
-        Navigator.popAndPushNamed(context, '/register');
+        Navigator.pushNamed(context, '/register');
       },
       child: Container(
         padding: const EdgeInsets.only(
