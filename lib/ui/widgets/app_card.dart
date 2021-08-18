@@ -68,7 +68,7 @@ class _AppCardState extends State<AppCard> {
           child: favorite
               ? const Icon(
                   Icons.star,
-                  color: AppColors.blue,
+                  color: Colors.orangeAccent,
                   size: 28,
                 )
               : const Icon(
