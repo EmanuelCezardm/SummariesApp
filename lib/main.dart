@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:summaries_app/ui/screens/about-screen.dart';
+import 'package:summaries_app/ui/screens/about_screen.dart';
 import 'package:summaries_app/ui/screens/home_screen.dart';
 import 'package:summaries_app/ui/screens/register_screen.dart';
 import 'package:summaries_app/ui/screens/login_screen.dart';
