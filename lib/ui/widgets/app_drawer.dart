@@ -89,7 +89,7 @@ class AppDrawer extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          actionsAlignment: MainAxisAlignment.center,
+      // actionsAlignment: MainAxisAlignment.center,
           backgroundColor: AppColors.background,
           title: const AppText(
             fontSize: 20,
