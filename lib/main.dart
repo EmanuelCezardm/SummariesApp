@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/screens/contents_screen.dart';
 import 'package:summaries_app/ui/screens/about_screen.dart';
+import 'package:summaries_app/ui/screens/favorites_screen.dart';
 import 'package:summaries_app/ui/screens/home_screen.dart';
 import 'package:summaries_app/ui/screens/profile_screen.dart';
 import 'package:summaries_app/ui/screens/register_screen.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const RegisterScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/summaries': (context) => const SummariesScreen(),
+        '/favorites': (context) => const FavoritesScreen(),
       },
       home: const LoginScreen(),
     );
