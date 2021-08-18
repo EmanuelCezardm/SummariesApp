@@ -27,17 +27,16 @@ class _ContentsScreenState extends State<ContentsScreen> {
     return AppAppBar(
       title: "Biologia",
       size: MediaQuery.of(context).size,
-      subjectScreen: false,
     );
   }
- 
+
   _buildDrawer() {
     return const AppDrawer();
   }
 
   _buildBody() {
     return ListView(
-      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+      padding: const EdgeInsets.all(8),
       physics: const BouncingScrollPhysics(),
       children: [
         AppCard(
@@ -52,19 +51,19 @@ class _ContentsScreenState extends State<ContentsScreen> {
           onPressed: () {},
           addIcon: isAdm,
         ),
-         AppCard(
+        AppCard(
           text: "Fisiologia Humana",
           fontSize: 28,
           onPressed: () {},
           addIcon: isAdm,
         ),
-         AppCard(
+        AppCard(
           text: "Genética",
           fontSize: 28,
           onPressed: () {},
           addIcon: isAdm,
         ),
-         AppCard(
+        AppCard(
           text: "Bioquímica",
           fontSize: 28,
           onPressed: () {},
