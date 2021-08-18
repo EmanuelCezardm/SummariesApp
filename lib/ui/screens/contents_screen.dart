@@ -42,27 +42,37 @@ class _ContentsScreenState extends State<ContentsScreen> {
         AppCard(
           text: "Ecologia",
           fontSize: 28,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/summaries');
+          },
         ),
         AppCard(
           text: "Citologia",
           fontSize: 28,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/summaries');
+          },
         ),
         AppCard(
           text: "Fisiologia Humana",
           fontSize: 28,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/summaries');
+          },
         ),
         AppCard(
           text: "Genética",
           fontSize: 28,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/summaries');
+          },
         ),
         AppCard(
           text: "Bioquímica",
           fontSize: 28,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/summaries');
+          },
         ),
       ],
     );

@@ -7,10 +7,10 @@ class AboutScreen extends StatefulWidget {
   const AboutScreen({Key? key}) : super(key: key);
 
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _AboutScreenState createState() => _AboutScreenState();
 }
 
-class _RegisterScreenState extends State<AboutScreen> {
+class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
