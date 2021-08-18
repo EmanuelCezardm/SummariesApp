@@ -42,7 +42,9 @@ class _ContentsScreenState extends State<ContentsScreen> {
         AppCard(
           text: "Ecologia",
           fontSize: 28,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/summaries');
+          },
         ),
         AppCard(
           text: "Citologia",

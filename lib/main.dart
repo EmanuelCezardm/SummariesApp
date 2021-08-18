@@ -6,6 +6,7 @@ import 'package:summaries_app/ui/screens/home_screen.dart';
 import 'package:summaries_app/ui/screens/profile_screen.dart';
 import 'package:summaries_app/ui/screens/register_screen.dart';
 import 'package:summaries_app/ui/screens/login_screen.dart';
+import 'package:summaries_app/ui/screens/summaries_screen.dart';
 import 'package:summaries_app/ui/styles/app_theme.dart';
 
 void main() {
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/about': (context) => const AboutScreen(),
         '/register': (context) => const RegisterScreen(),
         '/profile': (context) => const ProfileScreen(),
+        '/summaries': (context) => const SummariesScreen(),
       },
       home: const LoginScreen(),
     );
