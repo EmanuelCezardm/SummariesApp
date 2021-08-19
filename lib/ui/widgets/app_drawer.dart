@@ -103,7 +103,7 @@ class AppDrawer extends StatelessWidget {
                 align: TextAlign.center,
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.pop(context);
               },
             ),
           ],

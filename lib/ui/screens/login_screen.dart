@@ -43,7 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
           Text(
             'Login',
             style: TextStyle(
-                fontSize: 80, fontWeight: FontWeight.w500, color: Colors.white),
+              fontSize: 80,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+            ),
           ),
           SizedBox(
             height: 10,
@@ -51,7 +54,10 @@ class _LoginScreenState extends State<LoginScreen> {
           Text(
             'Bem-vindo de volta',
             style: TextStyle(
-                fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
@@ -138,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
   _buildSenha() {
     return GestureDetector(
       onTap: () {
-        debugPrint('Foi clicado');
+        Navigator.pushNamed(context, '/passwordRecovery');
       },
       child: Container(
         alignment: Alignment.topRight,
