@@ -4,6 +4,7 @@ import 'package:summaries_app/ui/screens/contents_screen.dart';
 import 'package:summaries_app/ui/screens/about_screen.dart';
 import 'package:summaries_app/ui/screens/favorites_screen.dart';
 import 'package:summaries_app/ui/screens/home_screen.dart';
+import 'package:summaries_app/ui/screens/password_recovery_screen.dart';
 import 'package:summaries_app/ui/screens/profile_screen.dart';
 import 'package:summaries_app/ui/screens/register_screen.dart';
 import 'package:summaries_app/ui/screens/login_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => const ProfileScreen(),
         '/summaries': (context) => const SummariesScreen(),
         '/favorites': (context) => const FavoritesScreen(),
+        '/passwordRecovery': (context) => const PasswordRecoveryScreen(),
       },
       home: const LoginScreen(),
     );
