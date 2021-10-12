@@ -7,12 +7,14 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Size size;
   final bool subjectScreen;
+  final double fontSize;
 
   const AppAppBar({
     Key? key,
     required this.title,
     required this.size,
     this.subjectScreen = false,
+    this.fontSize = 32,
   }) : super(key: key);
 
   @override
@@ -28,7 +30,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       return AppBar(
         title: AppText(
           text: title,
-          fontSize: 32,
+          fontSize: fontSize,
         ),
         elevation: 0,
       );
@@ -36,7 +38,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       return AppBar(
         title: AppText(
           text: title,
-          fontSize: 32,
+          fontSize: fontSize,
         ),
         elevation: 0,
         leading: GestureDetector(

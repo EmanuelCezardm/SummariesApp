@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
+import 'package:summaries_app/ui/widgets/app_elevated_button.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class PasswordRecoveryScreen extends StatefulWidget {
@@ -119,33 +120,18 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                       const SizedBox(
                         height: 56,
                       ),
-                      _buildButtom(),
+                      AppElevatedButton(
+                        onPressed: () {
+                          _functionRecuperar(context);
+                        },
+                        text: 'Recuperar',
+                      ),
                     ],
                   ),
                 ),
               )),
         ),
       ],
-    );
-  }
-
-  _buildButtom() {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        primary: AppColors.blue,
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 50,
-        ),
-        textStyle: const TextStyle(
-          color: Colors.black,
-          fontSize: 30,
-        ),
-      ),
-      onPressed: () {
-        _functionRecuperar(context);
-      },
-      child: const Text('Recuperar'),
     );
   }
 

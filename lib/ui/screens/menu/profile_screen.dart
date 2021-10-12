@@ -197,55 +197,59 @@ class _ProfileScreenState extends State<ProfileScreen> {
         const SizedBox(
           height: 40,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 40,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.lilas,
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  "CANCELAR",
-                  style: TextStyle(
-                    fontSize: 14,
-                    letterSpacing: 2.2,
-                    color: Colors.white,
-                  ),
-                ),
+        _buildButtons(),
+      ],
+    );
+  }
+
+  Row _buildButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+          height: 40,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: AppColors.lilas,
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
-            SizedBox(
-              height: 40,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.blue,
-                  padding: const EdgeInsets.symmetric(horizontal: 50),
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                child: const Text(
-                  "SALVAR",
-                  style: TextStyle(
-                    fontSize: 14,
-                    letterSpacing: 2.2,
-                    color: Colors.white,
-                  ),
-                ),
+            onPressed: () {},
+            child: const Text(
+              "CANCELAR",
+              style: TextStyle(
+                fontSize: 14,
+                letterSpacing: 2.2,
+                color: Colors.white,
               ),
             ),
-          ],
+          ),
+        ),
+        SizedBox(
+          height: 40,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(
+              primary: AppColors.blue,
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            child: const Text(
+              "SALVAR",
+              style: TextStyle(
+                fontSize: 14,
+                letterSpacing: 2.2,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
       ],
     );
