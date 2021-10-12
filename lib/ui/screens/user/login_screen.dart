@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
+import 'package:summaries_app/ui/widgets/app_elevated_icon_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -130,7 +131,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 56,
                       ),
                       _buildSenha(),
-                      _buildButtom(),
+                      AppElevatedIconButton(
+                        onPressed: () {
+                          Navigator.popAndPushNamed(context, '/home');
+                        },
+                        icon: Icons.check,
+                        text: 'Entrar',
+                      ),
                       _buildLink(),
                     ],
                   ),
@@ -161,30 +168,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  _buildButtom() {
-    return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(
-        primary: AppColors.blue,
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 50,
-        ),
-        textStyle: const TextStyle(
-          color: Colors.black,
-          fontSize: 30,
-        ),
-      ),
-      onPressed: () {
-        Navigator.popAndPushNamed(context, '/home');
-      },
-      icon: const Icon(
-        Icons.check,
-        size: 40,
-      ),
-      label: const Text('Entrar'),
     );
   }
 

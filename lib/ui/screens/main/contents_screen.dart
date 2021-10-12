@@ -18,7 +18,7 @@ class _ContentsScreenState extends State<ContentsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      endDrawer: _buildDrawer(),
+      endDrawer: const AppDrawer(),
       body: _buildBody(),
     );
   }
@@ -28,10 +28,6 @@ class _ContentsScreenState extends State<ContentsScreen> {
       title: "Biologia",
       size: MediaQuery.of(context).size,
     );
-  }
-
-  _buildDrawer() {
-    return const AppDrawer();
   }
 
   _buildBody() {

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:summaries_app/ui/widgets/app_elevated_icon_button.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -191,7 +192,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     const SizedBox(
                       height: 64,
                     ),
-                    _buildButtom(size),
+                    AppElevatedIconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icons.check,
+                      text: 'Cadastrar',
+                    ),
                   ],
                 ),
               ),
@@ -247,30 +254,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
       }
       return null;
     };
-  }
-
-  _buildButtom(size) {
-    return SizedBox(
-      width: size.width,
-      child: ElevatedButton.icon(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          primary: AppColors.blue,
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          textStyle: const TextStyle(
-            color: Colors.black,
-            fontSize: 26,
-          ),
-        ),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(
-          Icons.check,
-          size: 32,
-        ),
-        label: const Text('Cadastrar'),
-      ),
-    );
   }
 }

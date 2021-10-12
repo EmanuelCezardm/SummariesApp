@@ -34,19 +34,16 @@ class _AppCardState extends State<AppCard> {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 6),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppText(
-                  text: widget.text,
-                  fontSize: widget.fontSize,
-                ),
-                _makeIcon(context),
-              ],
-            ),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AppText(
+                text: widget.text,
+                fontSize: widget.fontSize,
+              ),
+              _makeIcon(context),
+            ],
           ),
         ),
       ),
