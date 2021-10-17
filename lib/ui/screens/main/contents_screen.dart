@@ -1,31 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:summaries_app/domain/model/subjects_model.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
 import 'package:summaries_app/ui/widgets/app_drawer.dart';
 
 class ContentsScreen extends StatefulWidget {
-  const ContentsScreen({Key? key}) : super(key: key);
+  final SubjectsModel subject;
+  final bool isAdm;
+
+  const ContentsScreen({
+    required this.subject,
+    required this.isAdm,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ContentsScreenState createState() => _ContentsScreenState();
 }
 
 class _ContentsScreenState extends State<ContentsScreen> {
-  final bool isAdm = false;
-
   @override
   Widget build(BuildContext context) {
+    //final dynamic subject = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(widget.subject.nameSubjects),
       endDrawer: const AppDrawer(),
       body: _buildBody(),
     );
   }
 
-  _buildAppBar() {
+  _buildAppBar(String title) {
     return AppAppBar(
-      title: "Biologia",
+      title: title,
       size: MediaQuery.of(context).size,
     );
   }

@@ -19,6 +19,8 @@ class ContentsDao {
       list.add(contents);
     }
 
+    Future.delayed(const Duration(seconds: 5));
+
     return list;
   }
 }
