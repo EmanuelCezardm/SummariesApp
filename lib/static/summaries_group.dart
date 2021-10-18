@@ -18,8 +18,9 @@ extension SummariesGroupUtilities on SummariesGroup{
 }*/
 
 import 'package:summaries_app/domain/summaries/geography/basic_concepts_of_geography.dart';
-import 'package:summaries_app/domain/summaries/philosophy/aristotle.dart';
-import 'package:summaries_app/domain/summaries/philosophy/greek_world.dart';
+import 'package:summaries_app/domain/summaries/philosophy/pre_socratic_cosmology.dart';
+import 'package:summaries_app/domain/summaries/philosophy/sophists_and_socrates.dart';
+import 'package:summaries_app/domain/summaries/philosophy/pre_socratic_ontology.dart';
 import 'package:summaries_app/domain/summaries/philosophy/introduction_to_philosophy.dart';
 
 getGroupList(int index) {
@@ -57,10 +58,10 @@ _buildSummariesBio(List resumos) {
 }
 
 _buildSummariesFilo(List resumos) {
-  resumos.add(resumoAristoteles);
-  resumos.add(resumoMundoGrego);
   resumos.add(resumoIntroducaoFilosofia);
-  //resumos.add(//resumoPreSocraticos);
+  resumos.add(resumoPreSocraticosCosmologia);
+  resumos.add(resumoPreSocraticosOntologia);
+  resumos.add(resumoSofistasSocrates);
   return resumos;
 }
 
