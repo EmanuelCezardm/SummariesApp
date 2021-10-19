@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/data/dao/subjectsdao.dart';
 import 'package:summaries_app/domain/model/subjects_model.dart';
+import 'package:summaries_app/ui/screens/add_contents_screen.dart';
 import 'package:summaries_app/ui/screens/main/contents_screen.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
@@ -13,6 +14,8 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
+
+final bool isAdmin = true;
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<List<SubjectsModel>> subjectsList;
@@ -69,12 +72,22 @@ class _HomeScreenState extends State<HomeScreen> {
               MaterialPageRoute(
                 builder: (context) => ContentsScreen(
                   subject: subjectList[index],
-                  isAdm: false,
                 ),
               ),
             );
           },
-          addIcon: false,
+          starIcon: false,
+          addIcon: isAdmin,
+          onPressedAddIcon: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddContentsScreen(
+                  subject: subjectList[index],
+                ),
+              ),
+            );
+          },
         );
       },
     );
