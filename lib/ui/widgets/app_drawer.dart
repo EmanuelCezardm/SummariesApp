@@ -55,8 +55,8 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.logout_outlined,
         text: 'Sair',
         onTap: () {
-          Navigator.popUntil(context, ModalRoute.withName('/home'));
-          Navigator.popAndPushNamed(context, '/login');
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/login', (route) => false);
         },
       ),
     ];

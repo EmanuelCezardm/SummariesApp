@@ -9,10 +9,11 @@ import 'package:summaries_app/ui/widgets/app_drawer.dart';
 
 class ContentsScreen extends StatefulWidget {
   final SubjectsModel subject;
-  final bool isAdmin = true;
+  final bool isAdmin;
 
   const ContentsScreen({
     required this.subject,
+    required this.isAdmin,
     Key? key,
   }) : super(key: key);
 
