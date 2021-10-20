@@ -22,7 +22,6 @@ class AddContentsScreen extends StatefulWidget {
 class _AddContentsScreenState extends State<AddContentsScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _idController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -121,22 +120,6 @@ class _AddContentsScreenState extends State<AddContentsScreen> {
             ),
             keyboardType: TextInputType.name,
           ),
-          const SizedBox(height: 8),
-          TextFormField(
-            controller: _idController,
-            validator: _idValidator,
-            decoration: const InputDecoration(
-              labelText: 'ID do assunto',
-              labelStyle: TextStyle(
-                fontSize: 28,
-                color: AppColors.blue,
-              ),
-            ),
-            style: const TextStyle(
-              fontSize: 20,
-            ),
-            keyboardType: TextInputType.number,
-          ),
         ],
       ),
     );
@@ -200,39 +183,34 @@ class _AddContentsScreenState extends State<AddContentsScreen> {
     return null;
   }
 
-  String? _idValidator(value) {
-    if (value == null || value.isEmpty) {
-      return 'O campo é obrigatório!';
-    }
-    return null;
-  }
-
   _add() async {
     if (!_formKey.currentState!.validate()) return;
-
-    final int idContent = int.parse(_idController.text);
     final String nameContent = _nameController.text;
     final int idSubject = widget.subject.idSubject;
 
-    final ContentsModel content =
-        ContentsModel(idContent, nameContent, idSubject);
+    final ContentsModel content = ContentsModel(nameContent, idSubject);
 
-    await ContentsDao().addContent(content);
+    final controller = await ContentsDao().fetchContentsByName(nameContent);
 
-    _functionContinue(context);
+    if (controller.isEmpty) {
+      await ContentsDao().addContent(content);
+      _functionContinue(context, 'Assunto salvo com sucesso.');
+    } else {
+      _functionContinue(context, 'Assunto já registrado.');
+    }
   }
 
-  _functionContinue(context) {
+  _functionContinue(context, text) {
     return showDialog(
       barrierDismissible: false,
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          actionsAlignment: MainAxisAlignment.center,
+          actionsAlignment: MainAxisAlignment.spaceBetween,
           backgroundColor: AppColors.background,
-          title: const AppText(
+          title: AppText(
             fontSize: 20,
-            text: 'Assunto salvo com sucesso.',
+            text: text,
             align: TextAlign.center,
             fontFamily: 'Raleway',
           ),

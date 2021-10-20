@@ -13,7 +13,7 @@ class DatabaseHelper {
 
   _initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, 'Summaries-App-06.db');
+    String path = join(databasePath, 'SummariesApp06.db');
     print(path);
 
     var database = await openDatabase(
@@ -39,7 +39,7 @@ class DatabaseHelper {
     await db.execute(sql);
 
     sql =
-        'create table assuntos (id_assunto integer PRIMARY KEY, nome_assunto varchar(100), id_materia_fk integer, FOREIGN KEY (id_materia_fk) REFERENCES materias(id_materia));';
+        'create table assuntos (id_assunto integer PRIMARY KEY AUTOINCREMENT, nome_assunto varchar(100), id_materia_fk integer, FOREIGN KEY (id_materia_fk) REFERENCES materias(id_materia));';
     await db.execute(sql);
 
     sql =

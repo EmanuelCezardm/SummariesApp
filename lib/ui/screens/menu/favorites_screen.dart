@@ -39,6 +39,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           },
           starIcon: false,
           onPressedAddIcon: () {},
+          idContents: 0,
+          idSubject: 0,
         ),
       ],
     );

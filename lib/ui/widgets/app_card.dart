@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:summaries_app/ui/screens/add_contents_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';
 
@@ -11,6 +10,9 @@ class AppCard extends StatefulWidget {
   final double fontSize;
   final VoidCallback onPressed;
   final VoidCallback onPressedAddIcon;
+  final bool isAdmin;
+  final int idSubject;
+  final int idContents;
 
   const AppCard({
     required this.text,
@@ -19,6 +21,9 @@ class AppCard extends StatefulWidget {
     this.starIcon = true,
     this.addIcon = false,
     required this.onPressedAddIcon,
+    this.isAdmin = false,
+    required this.idContents,
+    required this.idSubject,
     Key? key,
   }) : super(key: key);
 
@@ -43,16 +48,45 @@ class _AppCardState extends State<AppCard> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppText(
-                text: widget.text,
-                fontSize: widget.fontSize,
-              ),
+              _buildText(),
               _makeIcons(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  _buildText() {
+    if (widget.isAdmin) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppText(
+            text: widget.text,
+            fontSize: widget.fontSize,
+          ),
+          Row(
+            children: [
+              AppText(
+                text: 'id matéria: ${widget.idSubject}',
+                fontSize: 12,
+              ),
+              const SizedBox(width: 8),
+              AppText(
+                text: 'id assunto: ${widget.idContents}',
+                fontSize: 12,
+              ),
+            ],
+          ),
+        ],
+      );
+    } else {
+      return AppText(
+        text: widget.text,
+        fontSize: widget.fontSize,
+      );
+    }
   }
 
   _makeIcons() {

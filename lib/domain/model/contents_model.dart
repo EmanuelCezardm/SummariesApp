@@ -4,7 +4,6 @@ class ContentsModel {
   late int _idSubject;
 
   ContentsModel(
-    this._idContents,
     this._nameContents,
     this._idSubject,
   );
@@ -21,7 +20,6 @@ class ContentsModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id_assunto'] = _idContents;
     data['nome_assunto'] = _nameContents;
     data['id_materia_fk'] = _idSubject;
     return data;

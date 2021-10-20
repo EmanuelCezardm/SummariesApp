@@ -47,12 +47,31 @@ class ContentsDao {
     return list;
   }
 
+  Future<List<ContentsModel>> fetchContentsByName(String name) async {
+    List<ContentsModel> list = [];
+
+    DatabaseHelper database = DatabaseHelper();
+    Database db = await database.db;
+
+    String sql = "SELECT * FROM $tableName WHERE nome_assunto = '$name';";
+    final result = await db.rawQuery(sql);
+
+    print(result);
+
+    for (var json in result) {
+      ContentsModel contents = ContentsModel.fromJson(json);
+      list.add(contents);
+    }
+
+    return list;
+  }
+
   Future addContent(ContentsModel content) async {
     DatabaseHelper database = DatabaseHelper();
     Database db = await database.db;
 
     String sql =
-        "INSERT INTO $tableName (id_assunto, nome_assunto, id_materia_fk) VALUES (${content.idContents}, '${content.nameContents}', ${content.idSubject});";
+        "INSERT INTO $tableName (nome_assunto, id_materia_fk) VALUES ('${content.nameContents}', ${content.idSubject});";
     await db.rawInsert(sql);
   }
 

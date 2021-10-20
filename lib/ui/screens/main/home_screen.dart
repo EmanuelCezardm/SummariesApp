@@ -64,6 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
       itemCount: subjectList.length,
       itemBuilder: (context, index) {
         return AppCard(
+          idContents: 0,
+          idSubject: subjectList[index].idSubject,
           text: subjectList[index].nameSubjects,
           fontSize: 32,
           onPressed: () {

@@ -9,6 +9,7 @@ import 'package:summaries_app/ui/widgets/app_drawer.dart';
 
 class ContentsScreen extends StatefulWidget {
   final SubjectsModel subject;
+  final bool isAdmin = true;
 
   const ContentsScreen({
     required this.subject,
@@ -67,11 +68,14 @@ class _ContentsScreenState extends State<ContentsScreen> {
       itemBuilder: (context, index) {
         return AppCard(
           text: contentsList[index].nameContents,
-          fontSize: 32,
+          fontSize: 26,
           onPressed: () {
             Navigator.pushNamed(context, '/summaries');
           },
           onPressedAddIcon: () {},
+          idContents: contentsList[index].idContents,
+          idSubject: widget.subject.idSubject,
+          isAdmin: widget.isAdmin,
         );
       },
     );
