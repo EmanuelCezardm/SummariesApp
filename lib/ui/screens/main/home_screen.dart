@@ -2,20 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/data/dao/subjectsdao.dart';
 import 'package:summaries_app/domain/model/subjects_model.dart';
-import 'package:summaries_app/ui/screens/add_contents_screen.dart';
+import 'package:summaries_app/domain/model/user_model.dart';
+import 'package:summaries_app/ui/screens/admin/add_contents_screen.dart';
 import 'package:summaries_app/ui/screens/main/contents_screen.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
 import 'package:summaries_app/ui/widgets/app_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final UserModel user;
+
+  const HomeScreen({
+    required this.user,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
-
-final bool isAdmin = true;
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<List<SubjectsModel>> subjectsList;
@@ -29,10 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(),
-      endDrawer: const AppDrawer(),
-      body: _buildFutureBody(),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        endDrawer: const AppDrawer(),
+        body: _buildFutureBody(),
+      ),
     );
   }
 
@@ -74,12 +81,13 @@ class _HomeScreenState extends State<HomeScreen> {
               MaterialPageRoute(
                 builder: (context) => ContentsScreen(
                   subject: subjectList[index],
+                  isAdmin: widget.user.isAdmin,
                 ),
               ),
             );
           },
           starIcon: false,
-          addIcon: isAdmin,
+          addIcon: widget.user.isAdmin,
           onPressedAddIcon: () {
             Navigator.push(
               context,
