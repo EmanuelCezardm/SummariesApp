@@ -37,7 +37,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           onPressed: () {
             Navigator.pushNamed(context, '/summaries');
           },
-          addIcon: false,
+          starIcon: false,
+          onPressedAddIcon: () {},
+          idContents: 0,
+          idSubject: 0,
         ),
       ],
     );

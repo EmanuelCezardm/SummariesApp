@@ -85,7 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Container(
             height: size.height * .85,
             decoration: const BoxDecoration(
