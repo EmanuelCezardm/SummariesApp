@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:summaries_app/data/dao/favoritedao.dart';
+import 'package:summaries_app/domain/model/favorite_model.dart';
+import 'package:summaries_app/domain/model/user_model.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';
 
@@ -11,7 +14,7 @@ class AppCard extends StatefulWidget {
   final VoidCallback? onPressedAddIcon;
   final VoidCallback? onPressedDeleteIcon;
   final VoidCallback? onPressedEditIcon;
-  final bool isAdmin;
+  final UserModel user;
   final int idSubject;
   final int idContents;
   late bool favorite;
@@ -20,7 +23,7 @@ class AppCard extends StatefulWidget {
     required this.text,
     this.fontSize = 30,
     required this.onPressed,
-    required this.isAdmin,
+    required this.user,
     required this.idContents,
     required this.idSubject,
     this.onPressedAddIcon,
@@ -63,7 +66,7 @@ class _AppCardState extends State<AppCard> {
   }
 
   _buildText() {
-    if (widget.isAdmin) {
+    if (widget.user.isAdmin) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -102,11 +105,11 @@ class _AppCardState extends State<AppCard> {
   }
 
   _makeIcons() {
-    if (widget.subjectScreen == false && widget.isAdmin == false) {
+    if (widget.subjectScreen == false && widget.user.isAdmin == false) {
       return _makeStarIcon();
-    } else if (widget.subjectScreen && widget.isAdmin) {
+    } else if (widget.subjectScreen && widget.user.isAdmin) {
       return _makeAddIcon();
-    } else if (widget.subjectScreen == false && widget.isAdmin) {
+    } else if (widget.subjectScreen == false && widget.user.isAdmin) {
       return _makeDeleteEditIcon();
     } else {
       return Container();
@@ -115,8 +118,7 @@ class _AppCardState extends State<AppCard> {
 
   _makeStarIcon() {
     return GestureDetector(
-      onTap: () =>
-          setState(() => favorite ? setFavorite(false) : setFavorite(true)),
+      onTap: () => setState(() => _functionSetFavorite()),
       child: favorite
           ? const Icon(
               Icons.star,
@@ -129,6 +131,19 @@ class _AppCardState extends State<AppCard> {
               size: 28,
             ),
     );
+  }
+
+  _functionSetFavorite() {
+    if (favorite) {
+      FavoriteDao().deleteFavorite(
+          widget.user.email, widget.idSubject, widget.idContents);
+      setFavorite(false);
+    } else {
+      final favoriteModel =
+          FavoriteModel(widget.user.email, widget.idSubject, widget.idContents);
+      FavoriteDao().addFavorite(favoriteModel);
+      setFavorite(true);
+    }
   }
 
   _makeAddIcon() {

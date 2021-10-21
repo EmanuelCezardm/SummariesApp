@@ -237,6 +237,7 @@ class _AddContentsScreenState extends State<AddContentsScreen> {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                Navigator.pop(context);
               },
             ),
           ],

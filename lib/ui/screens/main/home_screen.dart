@@ -24,10 +24,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late Future<List<SubjectsModel>> subjectsList;
 
+  UserModel get user => widget.user;
+
   @override
   void initState() {
     super.initState();
 
+    _fetchDB();
+  }
+
+  _fetchDB() {
     subjectsList = SubjectsDao().listSubjects();
   }
 
@@ -37,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onWillPop: () async => false,
       child: Scaffold(
         appBar: _buildAppBar(),
-        endDrawer: const AppDrawer(),
+        drawer: AppDrawer(user: user),
         body: _buildFutureBody(),
       ),
     );
@@ -71,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
       itemCount: subjectList.length,
       itemBuilder: (context, index) {
         return AppCard(
-          isAdmin: widget.user.isAdmin,
+          user: user,
           subjectScreen: true,
           idContents: 0,
           idSubject: subjectList[index].idSubject,
@@ -83,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               MaterialPageRoute(
                 builder: (context) => ContentsScreen(
                   subject: subjectList[index],
-                  isAdmin: widget.user.isAdmin,
+                  user: user,
                 ),
               ),
             );

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:summaries_app/ui/screens/main/contents_screen.dart';
 import 'package:summaries_app/ui/screens/menu/about_screen.dart';
-import 'package:summaries_app/ui/screens/menu/favorites_screen.dart';
-import 'package:summaries_app/ui/screens/main/home_screen.dart';
 import 'package:summaries_app/ui/screens/user/password_recovery_screen.dart';
 import 'package:summaries_app/ui/screens/menu/profile_screen.dart';
 import 'package:summaries_app/ui/screens/user/register_screen.dart';
@@ -35,7 +32,6 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const RegisterScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/summaries': (context) => const SummariesScreen(),
-        '/favorites': (context) => const FavoritesScreen(),
         '/passwordRecovery': (context) => const PasswordRecoveryScreen(),
       },
       home: const SplashScreen(),
