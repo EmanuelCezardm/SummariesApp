@@ -107,7 +107,7 @@ class _ContentsScreenState extends State<ContentsScreen> {
                   backgroundColor: AppColors.background,
                   title: AppText(
                     fontSize: 20,
-                    text: 'Excluir $contentsList[index].nameContents',
+                    text: 'Excluir: ${contentsList[index].nameContents}?',
                     align: TextAlign.center,
                     fontFamily: 'Raleway',
                   ),
