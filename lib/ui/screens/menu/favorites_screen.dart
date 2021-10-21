@@ -32,12 +32,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       physics: const BouncingScrollPhysics(),
       children: [
         AppCard(
+          isAdmin: true,
           text: "Conteúdo favoritado",
           fontSize: 28,
           onPressed: () {
             Navigator.pushNamed(context, '/summaries');
           },
-          starIcon: false,
           onPressedAddIcon: () {},
           idContents: 0,
           idSubject: 0,

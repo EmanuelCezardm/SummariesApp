@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:summaries_app/data/dao/contentsdao.dart';
 import 'package:summaries_app/domain/model/contents_model.dart';
 import 'package:summaries_app/domain/model/subjects_model.dart';
+import 'package:summaries_app/ui/screens/admin/edit_contents_screen.dart';
+import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
 import 'package:summaries_app/ui/widgets/app_drawer.dart';
+import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class ContentsScreen extends StatefulWidget {
   final SubjectsModel subject;
@@ -28,7 +31,11 @@ class _ContentsScreenState extends State<ContentsScreen> {
   void initState() {
     super.initState();
 
-    contentsList =
+    _fetchContentsList();
+  }
+
+  Future<List<ContentsModel>> _fetchContentsList() {
+    return contentsList =
         ContentsDao().listContentsBySubjectsId(widget.subject.idSubject);
   }
 
@@ -73,10 +80,73 @@ class _ContentsScreenState extends State<ContentsScreen> {
           onPressed: () {
             Navigator.pushNamed(context, '/summaries');
           },
-          onPressedAddIcon: () {},
           idContents: contentsList[index].idContents,
           idSubject: widget.subject.idSubject,
           isAdmin: widget.isAdmin,
+          onPressedEditIcon: () {
+            Navigator.of(context)
+                .push(
+                  MaterialPageRoute(
+                    builder: (context) => EditContentsScreen(
+                      subject: widget.subject,
+                      content: contentsList[index],
+                    ),
+                  ),
+                )
+                .whenComplete(() => setState(() {
+                      _fetchContentsList();
+                    }));
+          },
+          onPressedDeleteIcon: () {
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  actionsAlignment: MainAxisAlignment.center,
+                  backgroundColor: AppColors.background,
+                  title: AppText(
+                    fontSize: 20,
+                    text: 'Excluir: ${contentsList[index].nameContents}?',
+                    align: TextAlign.center,
+                    fontFamily: 'Raleway',
+                  ),
+                  actions: [
+                    CupertinoButton(
+                      child: const AppText(
+                        fontSize: 20,
+                        fontFamily: 'Raleway',
+                        text: 'CANCELAR',
+                        color: AppColors.blue,
+                        align: TextAlign.center,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    CupertinoButton(
+                      child: const AppText(
+                        fontSize: 20,
+                        fontFamily: 'Raleway',
+                        text: 'EXCLUIR',
+                        color: AppColors.blue,
+                        align: TextAlign.center,
+                      ),
+                      onPressed: () {
+                        ContentsDao().deleteContent(
+                            contentsList[index].idContents,
+                            widget.subject.idSubject);
+                        Navigator.pop(context);
+                        setState(() {
+                          _fetchContentsList();
+                        });
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
         );
       },
     );
