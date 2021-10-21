@@ -35,8 +35,6 @@ class ContentsDao {
     String sql = 'SELECT * FROM $tableName WHERE id_materia_fk = $id_subject;';
     final result = await db.rawQuery(sql);
 
-    print(result);
-
     for (var json in result) {
       ContentsModel contents = ContentsModel.fromJson(json);
       list.add(contents);
@@ -55,8 +53,6 @@ class ContentsDao {
 
     String sql = "SELECT * FROM $tableName WHERE nome_assunto = '$name';";
     final result = await db.rawQuery(sql);
-
-    print(result);
 
     for (var json in result) {
       ContentsModel contents = ContentsModel.fromJson(json);
