@@ -71,6 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
       itemCount: subjectList.length,
       itemBuilder: (context, index) {
         return AppCard(
+          isAdmin: widget.user.isAdmin,
+          subjectScreen: true,
           idContents: 0,
           idSubject: subjectList[index].idSubject,
           text: subjectList[index].nameSubjects,
@@ -86,8 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             );
           },
-          starIcon: false,
-          addIcon: widget.user.isAdmin,
           onPressedAddIcon: () {
             Navigator.push(
               context,

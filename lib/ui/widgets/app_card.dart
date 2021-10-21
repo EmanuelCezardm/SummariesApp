@@ -5,25 +5,29 @@ import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class AppCard extends StatefulWidget {
   final String text;
-  final bool starIcon;
-  final bool addIcon;
+  final bool subjectScreen;
   final double fontSize;
   final VoidCallback onPressed;
-  final VoidCallback onPressedAddIcon;
+  final VoidCallback? onPressedAddIcon;
+  final VoidCallback? onPressedDeleteIcon;
+  final VoidCallback? onPressedEditIcon;
   final bool isAdmin;
   final int idSubject;
   final int idContents;
+  late bool favorite;
 
-  const AppCard({
+  AppCard({
     required this.text,
-    required this.fontSize,
+    this.fontSize = 30,
     required this.onPressed,
-    this.starIcon = true,
-    this.addIcon = false,
-    required this.onPressedAddIcon,
-    this.isAdmin = false,
+    required this.isAdmin,
     required this.idContents,
     required this.idSubject,
+    this.onPressedAddIcon,
+    this.onPressedDeleteIcon,
+    this.onPressedEditIcon,
+    this.subjectScreen = false,
+    this.favorite = false,
     Key? key,
   }) : super(key: key);
 
@@ -31,9 +35,10 @@ class AppCard extends StatefulWidget {
   _AppCardState createState() => _AppCardState();
 }
 
-bool favorite = false;
-
 class _AppCardState extends State<AppCard> {
+  bool get favorite => widget.favorite;
+  setFavorite(favorite) => widget.favorite = favorite;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -73,10 +78,7 @@ class _AppCardState extends State<AppCard> {
                 fontSize: 12,
               ),
               const SizedBox(width: 8),
-              AppText(
-                text: 'id assunto: ${widget.idContents}',
-                fontSize: 12,
-              ),
+              _buildIdContentIndicator(),
             ],
           ),
         ],
@@ -89,50 +91,78 @@ class _AppCardState extends State<AppCard> {
     }
   }
 
+  _buildIdContentIndicator() {
+    if (widget.subjectScreen) {
+      return Container();
+    }
+    return AppText(
+      text: 'id assunto: ${widget.idContents}',
+      fontSize: 12,
+    );
+  }
+
   _makeIcons() {
-    if (widget.starIcon && widget.addIcon == false) {
+    if (widget.subjectScreen == false && widget.isAdmin == false) {
       return _makeStarIcon();
-    } else if (widget.starIcon == false && widget.addIcon) {
+    } else if (widget.subjectScreen && widget.isAdmin) {
       return _makeAddIcon();
+    } else if (widget.subjectScreen == false && widget.isAdmin) {
+      return _makeDeleteEditIcon();
     } else {
       return Container();
     }
   }
 
   _makeStarIcon() {
-    if (widget.starIcon) {
-      return GestureDetector(
-        onTap: () =>
-            setState(() => favorite ? favorite = false : favorite = true),
-        child: favorite
-            ? const Icon(
-                Icons.star,
-                color: Colors.orangeAccent,
-                size: 28,
-              )
-            : const Icon(
-                Icons.star_border_outlined,
-                color: AppColors.blue,
-                size: 28,
-              ),
-      );
-    } else {
-      return Container();
-    }
+    return GestureDetector(
+      onTap: () =>
+          setState(() => favorite ? setFavorite(false) : setFavorite(true)),
+      child: favorite
+          ? const Icon(
+              Icons.star,
+              color: Colors.orangeAccent,
+              size: 28,
+            )
+          : const Icon(
+              Icons.star_border_outlined,
+              color: AppColors.blue,
+              size: 28,
+            ),
+    );
   }
 
   _makeAddIcon() {
-    if (widget.addIcon) {
-      return GestureDetector(
-        onTap: widget.onPressedAddIcon,
-        child: const Icon(
-          Icons.add,
-          color: AppColors.blue,
-          size: 28,
+    return GestureDetector(
+      onTap: widget.onPressedAddIcon,
+      child: const Icon(
+        Icons.add,
+        color: AppColors.blue,
+        size: 28,
+      ),
+    );
+  }
+
+  _makeDeleteEditIcon() {
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: widget.onPressedDeleteIcon,
+          child: const Icon(
+            Icons.delete_outline,
+            color: AppColors.blue,
+            size: 24,
+          ),
         ),
-      );
-    } else {
-      return Container();
-    }
+        const SizedBox(width: 8),
+        GestureDetector(
+          onTap: widget.onPressedEditIcon,
+          child: const Icon(
+            Icons.edit_outlined,
+            color: AppColors.blue,
+            size: 24,
+          ),
+        ),
+      ],
+    );
   }
 }
