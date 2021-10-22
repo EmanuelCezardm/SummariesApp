@@ -35,8 +35,6 @@ class UserDao {
         "SELECT * FROM $tableName WHERE email_usuario = '$email' AND senha_usuario = '$senha';";
     final result = await db.rawQuery(sql);
 
-    print(result);
-
     for (var json in result) {
       UserModel contents = UserModel.fromJson(json);
       list.add(contents);
@@ -53,8 +51,6 @@ class UserDao {
 
     String sql = "SELECT * FROM $tableName WHERE email_usuario = '$email';";
     final result = await db.rawQuery(sql);
-
-    print(result);
 
     for (var json in result) {
       UserModel contents = UserModel.fromJson(json);

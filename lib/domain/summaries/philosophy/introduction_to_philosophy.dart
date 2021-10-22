@@ -1,5 +1,9 @@
 final List<Map> resumoIntroducaoFilosofia = [
   {
+    'text': 'Intro. a Filosofia',
+    'id_type': 6,
+  },
+  {
     'text': 'Introdução à filosofia',
     'id_type': 0,
   },

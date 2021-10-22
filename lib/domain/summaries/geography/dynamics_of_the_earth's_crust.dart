@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoDinamicaIntCrosta = [
   {
+    'text': 'Dinâ. Inter. Crost.',
+    'id_type': 6,
+  },
+  {
     'text':
         'A dinâmica  interna  da  crosta terrestre:  movimentos  tectônicos estruturantes  do  relevo  e  seus reflexos sobre as sociedades.',
     'id_type': 0,

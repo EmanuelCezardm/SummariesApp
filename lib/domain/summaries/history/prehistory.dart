@@ -1,6 +1,10 @@
 final List<Map> resumoPreHistoria = [
   {
     'text': 'Pré-História',
+    'id_type': 6,
+  },
+  {
+    'text': 'Pré-História',
     'id_type': 0,
   },
   {

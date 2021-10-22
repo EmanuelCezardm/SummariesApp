@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoCadeiaAlimentar = [
   {
+    'text': 'Cadeia Alimentar',
+    'id_type': 6,
+  },
+  {
     'text': 'Cadeia e teia alimentar',
     'id_type': 0,
   },

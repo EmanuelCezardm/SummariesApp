@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoRotacaoTranslacao = [
   {
+    'text': 'Rota. e Transla.',
+    'id_type': 6,
+  },
+  {
     'text': ' Movimentos de rotação e translação da Terra',
     'id_type': 0,
   },

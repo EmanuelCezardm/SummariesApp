@@ -1,6 +1,10 @@
 final List<Map> resumoLeisDeNewton = [
   {
     'text': 'Leis de Newton',
+    'id_type': 6,
+  },
+  {
+    'text': 'Leis de Newton',
     'id_type': 1,
   },
   {

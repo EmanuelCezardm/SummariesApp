@@ -1,5 +1,9 @@
 final List<Map> resumoLeiGravitacaoUniversal = [
   {
+    'text': 'Lei da Gravitação Univ.',
+    'id_type': 6,
+  },
+  {
     'text': 'Lei da gravitação universal',
     'id_type': 0,
   },

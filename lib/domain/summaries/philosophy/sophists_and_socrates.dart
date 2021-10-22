@@ -1,6 +1,10 @@
 final List<Map> resumoSofistasSocrates = [
   {
     'text': 'Sofistas e Sócrates',
+    'id_type': 6,
+  },
+  {
+    'text': 'Sofistas e Sócrates',
     'id_type': 0,
   },
   {

@@ -1,5 +1,9 @@
 final List<Map> resumoTeoriasSociologicas = [
   {
+    'text': 'Teorias Sociológicas',
+    'id_type': 6,
+  },
+  {
     'text':
         ' Teorias sociológicas clássicas: Comte, Durkheim, Engels e Marx, Weber.',
     'id_type': 0,

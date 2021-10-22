@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoFigurasSonoras = [
   {
+    'text': 'Figuras Sonoras',
+    'id_type': 6,
+  },
+  {
     'text': 'Figuras sonoras',
     'id_type': 1,
   },

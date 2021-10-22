@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
 import 'package:summaries_app/ui/screens/menu/favorites_screen.dart';
+import 'package:summaries_app/ui/screens/menu/profile_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';
 
@@ -32,7 +33,12 @@ class AppDrawer extends StatelessWidget {
         text: 'Perfil',
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, '/profile');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProfileScreen(user: user),
+            ),
+          );
         },
       ),
       _buildListTile(

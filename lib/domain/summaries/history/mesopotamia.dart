@@ -1,6 +1,10 @@
 final List<Map> resumoMesopotamia = [
   {
     'text': 'Mesopotâmia',
+    'id_type': 6,
+  },
+  {
+    'text': 'Mesopotâmia',
     'id_type': 0,
   },
   {

@@ -1,5 +1,9 @@
 final List<Map> resumoPreSocraticosOntologia = [
   {
+    'text': 'Pré-soc Ontologia',
+    'id_type': 6,
+  },
+  {
     'text': 'Pré-Socráticos: ontologia',
     'id_type': 0,
   },

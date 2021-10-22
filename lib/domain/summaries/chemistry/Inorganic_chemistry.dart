@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoQuimicaInorganica = [
   {
+    'text': 'Química Inorgâ.',
+    'id_type': 6,
+  },
+  {
     'text': 'Química Inorgânica',
     'id_type': 0,
   },

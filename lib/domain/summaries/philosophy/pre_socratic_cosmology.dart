@@ -1,5 +1,9 @@
 final List<Map> resumoPreSocraticosCosmologia = [
   {
+    'text': 'Pré-Soc. Cosmologia',
+    'id_type': 6,
+  },
+  {
     'text': 'Pré-Socráticos: cosmologia',
     'id_type': 0,
   },

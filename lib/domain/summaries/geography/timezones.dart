@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoFusosHorarios = [
   {
+    'text': 'Fusos Horários',
+    'id_type': 6,
+  },
+  {
     'text': 'Fusos horários',
     'id_type': 0,
   },

@@ -1,5 +1,9 @@
 final List<Map> resumoSateliteOrbitasCirculares = [
   {
+    'text': 'Satélite em Órbita Circ.',
+    'id_type': 6,
+  },
+  {
     'text': 'Satélite em órbitas circulares',
     'id_type': 0,
   },

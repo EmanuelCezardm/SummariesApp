@@ -1,6 +1,10 @@
 final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   {
     'text': 'Figuras de Sintaxe',
+    'id_type': 6,
+  },
+  {
+    'text': 'Figuras de Sintaxe',
     'id_type': 1,
   },
   {

@@ -19,8 +19,6 @@ class FavoriteDao {
       list.add(favorite);
     }
 
-    print(result);
-
     Future.delayed(const Duration(seconds: 5));
 
     return list;

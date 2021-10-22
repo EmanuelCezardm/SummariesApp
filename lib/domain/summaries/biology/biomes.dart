@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoBiomas = [
   {
+    'text': 'Biomas',
+    'id_type': 6,
+  },
+  {
     'text': 'Principais Biomas:',
     'id_type': 0,
   },

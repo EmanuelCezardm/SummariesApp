@@ -1,5 +1,9 @@
 final List<Map> resumoconsConsolidacaoSociedadeCapitalista = [
   {
+    'text': 'Sociedade Capitalista',
+    'id_type': 6,
+  },
+  {
     'text':
         'Formação e consolidação da sociedade capitalista e o desenvolvimento do pensamento social.',
     'id_type': 0,

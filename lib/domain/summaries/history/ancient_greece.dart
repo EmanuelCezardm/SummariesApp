@@ -1,6 +1,10 @@
 final List<Map> resumoGreciaAntiga = [
   {
     'text': 'Grécia Antiga',
+    'id_type': 6,
+  },
+  {
+    'text': 'Grécia Antiga',
     'id_type': 0,
   },
   {

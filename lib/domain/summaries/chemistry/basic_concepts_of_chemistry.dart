@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoConceitosBasicosQuimica = [
   {
+    'text': 'Conceitos Básicos',
+    'id_type': 6,
+  },
+  {
     'text': 'Conceitos básicos de Química',
     'id_type': 0,
   },

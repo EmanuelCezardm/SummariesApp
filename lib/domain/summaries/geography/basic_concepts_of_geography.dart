@@ -1,5 +1,9 @@
 final List<Map<String, dynamic>> resumoConceitosGeo = [
   {
+    'text': 'Conceitos Básicos',
+    'id_type': 6,
+  },
+  {
     'text': 'Objeto central e conceitos básicos da Geografia',
     'id_type': 0,
   },

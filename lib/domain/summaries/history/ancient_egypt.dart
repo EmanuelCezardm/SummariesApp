@@ -1,6 +1,10 @@
 final List<Map> resumoEgitoAntigo = [
   {
     'text': 'Egito Antigo',
+    'id_type': 6,
+  },
+  {
+    'text': 'Egito Antigo',
     'id_type': 0,
   },
   {

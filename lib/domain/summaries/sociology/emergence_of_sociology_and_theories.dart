@@ -1,5 +1,9 @@
 final List<Map> resumoSurgimentoDaSociologia = [
   {
+    'text': 'Surgimento da Socio.',
+    'id_type': 6,
+  },
+  {
     'text': 'O Surgimento da Sociologia e Teorias Sociológicas.',
     'id_type': 0,
   },

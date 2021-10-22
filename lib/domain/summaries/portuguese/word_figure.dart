@@ -1,6 +1,10 @@
 final List<Map<String, dynamic>> resumoFiguraDePalavra = [
   {
     'text': 'Figuras de Palavra',
+    'id_type': 6,
+  },
+  {
+    'text': 'Figuras de Palavra',
     'id_type': 1,
   },
   {

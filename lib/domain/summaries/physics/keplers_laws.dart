@@ -1,6 +1,10 @@
 final List<Map> resumoLeisDeKepler = [
   {
     'text': 'Leis de Kepler',
+    'id_type': 6,
+  },
+  {
+    'text': 'Leis de Kepler',
     'id_type': 0,
   },
   {

@@ -1,6 +1,10 @@
 final List<Map<String, dynamic>> resumoFisicoQuimica = [
   {
     'text': 'Físico-Química',
+    'id_type': 6,
+  },
+  {
+    'text': 'Físico-Química',
     'id_type': 0,
   },
   {

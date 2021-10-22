@@ -14,8 +14,6 @@ class ContentsDao {
     String sql = 'SELECT * FROM $tableName;';
     final result = await db.rawQuery(sql);
 
-    print(result);
-
     for (var json in result) {
       ContentsModel contents = ContentsModel.fromJson(json);
       list.add(contents);

@@ -1,5 +1,9 @@
 final List<Map> resumoPensamentoCientifico = [
   {
+    'text': 'Pensamento Científico',
+    'id_type': 6,
+  },
+  {
     'text': ' Pensamento científico e senso comum.',
     'id_type': 0,
   },
