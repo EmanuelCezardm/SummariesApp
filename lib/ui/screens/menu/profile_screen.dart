@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:summaries_app/domain/model/user_model.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  final UserModel user;
+
+  const ProfileScreen({
+    required this.user,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -13,6 +19,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool enabledName = false;
   bool enabledPhone = false;
   bool enabledEmail = false;
+
+  UserModel get user => widget.user;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,7 +145,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           keyboardType: TextInputType.name,
-          initialValue: 'Maria Antonella',
+          initialValue: user.name,
         ),
         const SizedBox(
           height: 20,
@@ -164,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           keyboardType: TextInputType.phone,
-          initialValue: '(82) 99975-0801',
+          initialValue: user.cellPhone,
         ),
         const SizedBox(
           height: 20,
@@ -192,7 +201,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           keyboardType: TextInputType.emailAddress,
-          initialValue: 'Antonella@gmail.com',
+          initialValue: user.email,
         ),
         const SizedBox(
           height: 40,

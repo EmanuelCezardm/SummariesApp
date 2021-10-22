@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:summaries_app/data/dao/usersdao.dart';
+import 'package:summaries_app/domain/model/user_model.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:summaries_app/ui/widgets/app_elevated_icon_button.dart';
+import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -12,11 +15,11 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final GlobalKey _formKey = GlobalKey();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _phoneController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool passwordVisible = true;
   @override
   Widget build(BuildContext context) {
@@ -85,7 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Container(
             height: size.height * .85,
             decoration: const BoxDecoration(
@@ -102,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     TextFormField(
                       controller: _nameController,
-                      validator: _nomeValidator(),
+                      validator: _nomeValidator,
                       decoration: const InputDecoration(
                         prefixIcon: Icon(
                           Icons.person_outline,
@@ -122,7 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     TextFormField(
                       controller: _phoneController,
-                      validator: _telefoneValidator(),
+                      validator: _telefoneValidator,
                       inputFormatters: [mask],
                       decoration: const InputDecoration(
                         prefixIcon: Icon(
@@ -143,7 +146,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     TextFormField(
                       controller: _emailController,
-                      validator: _emailValidator(),
+                      validator: _emailValidator,
                       decoration: const InputDecoration(
                         prefixIcon: Icon(
                           Icons.email_outlined,
@@ -163,7 +166,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     TextFormField(
                       controller: _passwordController,
-                      validator: _senhaValidator(),
+                      validator: _senhaValidator,
                       obscureText: passwordVisible,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(
@@ -193,9 +196,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 64,
                     ),
                     AppElevatedIconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      onPressed: _buildFunctionRegister,
                       icon: Icons.check,
                       text: 'Cadastrar',
                     ),
@@ -209,50 +210,102 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  _nomeValidator() {
-    (value) {
-      if (value == null || value.isEmpty) {
-        return 'O campo é obrigatório!';
-      }
-      if (value.length < 5) {
-        return 'O campo deve ter pelo menos 5 caracteres';
-      }
-      return null;
-    };
+  void _buildFunctionRegister() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    final user = UserModel(_nameController.text, _phoneController.text,
+        _emailController.text, _passwordController.text, false);
+
+    final list = await UserDao().fetchUserByEmail(_emailController.text);
+
+    if (list.isEmpty) {
+      UserDao().addUser(user);
+      _functionShowDialog(
+        context,
+        'Usuário cadastrado com sucesso.',
+        () {
+          Navigator.pop(context);
+          Navigator.pop(context);
+        },
+      );
+    } else {
+      _functionShowDialog(
+        context,
+        'Email já cadastrado.',
+        () {
+          Navigator.pop(context);
+        },
+      );
+    }
   }
 
-  _telefoneValidator() {
-    (value) {
-      if (value == null || value.isEmpty) {
-        return 'O campo é obrigatório!';
-      }
-      return null;
-    };
+  String? _nomeValidator(value) {
+    if (value == null || value.isEmpty) {
+      return 'O campo é obrigatório!';
+    }
+    if (value.length < 5) {
+      return 'O campo deve ter pelo menos 5 caracteres';
+    }
+    return null;
   }
 
-  _emailValidator() {
-    (value) {
-      if (value == null || value.isEmpty) {
-        return 'O campo é obrigatório!';
-      }
-      if (value.length < 8) {
-        return 'O campo deve ter pelo menos 8 caracteres';
-      } else if (!value.contains("@")) {
-        return "O e-mail precisa do @";
-      }
-      return null;
-    };
+  String? _telefoneValidator(value) {
+    if (value == null || value.isEmpty) {
+      return 'O campo é obrigatório!';
+    }
+    return null;
   }
 
-  _senhaValidator() {
-    (value) {
-      if (value == null || value.isEmpty) {
-        return 'O campo é obrigatório!';
-      }
-      if (value.length < 9) {
-        return 'O campo deve ter pelo menos 8 caracteres';
-      }
-      return null;
-    };
+  String? _emailValidator(value) {
+    if (value == null || value.isEmpty) {
+      return 'O campo é obrigatório!';
+    }
+    if (value.length < 8) {
+      return 'O campo deve ter pelo menos 8 caracteres';
+    } else if (!value.contains("@")) {
+      return "O e-mail precisa do @";
+    }
+    return null;
+  }
+
+  String? _senhaValidator(value) {
+    if (value == null || value.isEmpty) {
+      return 'O campo é obrigatório!';
+    }
+    if (value.length < 8) {
+      return 'O campo deve ter pelo menos 8 caracteres';
+    }
+    return null;
+  }
+
+  _functionShowDialog(context, text, function) {
+    return showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          actionsAlignment: MainAxisAlignment.center,
+          backgroundColor: AppColors.background,
+          title: AppText(
+            fontSize: 20,
+            text: text,
+            align: TextAlign.center,
+            fontFamily: 'Raleway',
+          ),
+          actions: [
+            CupertinoButton(
+              child: const AppText(
+                fontSize: 20,
+                fontFamily: 'Raleway',
+                text: 'OK',
+                color: AppColors.blue,
+                align: TextAlign.center,
+              ),
+              onPressed: function,
+            ),
+          ],
+        );
+      },
+    );
   }
 }
