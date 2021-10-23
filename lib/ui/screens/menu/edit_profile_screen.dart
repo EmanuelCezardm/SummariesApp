@@ -219,7 +219,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   String? _phoneValidator(value) {
-    if (value.length < 14 && value.isNotEmpty) {
+    if (value.length < 16 && value.isNotEmpty) {
       return 'Preencha o campo corretamente';
     }
     if (value == user.cellPhone) {

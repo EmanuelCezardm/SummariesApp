@@ -253,6 +253,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (value == null || value.isEmpty) {
       return 'O campo é obrigatório!';
     }
+    if (value.length < 16 && value.isNotEmpty) {
+      return 'Preencha o campo corretamente';
+    }
     return null;
   }
 

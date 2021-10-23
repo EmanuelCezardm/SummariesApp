@@ -10,7 +10,6 @@ import 'package:summaries_app/ui/screens/admin/edit_contents_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
-import 'package:summaries_app/ui/widgets/app_drawer.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class ContentsScreen extends StatefulWidget {
@@ -134,9 +133,13 @@ class _ContentsScreenState extends State<ContentsScreen> {
                     ),
                   ),
                 )
-                .whenComplete(() => setState(() {
+                .whenComplete(
+                  () => setState(
+                    () {
                       _fetchDB();
-                    }));
+                    },
+                  ),
+                );
           },
           onPressedDeleteIcon: () {
             showDialog(

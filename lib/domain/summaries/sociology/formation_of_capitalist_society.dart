@@ -1,4 +1,4 @@
-final List<Map> resumoconsConsolidacaoSociedadeCapitalista = [
+final List<Map> resumoConsolidacaoSociedadeCapitalista = [
   {
     'text': 'Sociedade Capitalista',
     'id_type': 6,

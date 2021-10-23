@@ -1,4 +1,4 @@
-final List<Map<String, dynamic>> resumoFuguraDeLinguagem = [
+final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   {
     'text': 'Figuras de Linguagem',
     'id_type': 6,
