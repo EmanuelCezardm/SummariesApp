@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:summaries_app/ui/styles/app_colors.dart';
 
 import 'app_text.dart';
 
@@ -8,6 +9,9 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Size size;
   final bool subjectScreen;
   final double fontSize;
+  final Color color;
+  final VoidCallback? onTapBack;
+  final Color? iconColor;
 
   const AppAppBar({
     Key? key,
@@ -15,6 +19,9 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.size,
     this.subjectScreen = false,
     this.fontSize = 32,
+    this.color = AppColors.blue,
+    this.onTapBack,
+    this.iconColor,
   }) : super(key: key);
 
   @override
@@ -28,6 +35,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   _buildAppBar(subjectScreen, context) {
     if (subjectScreen) {
       return AppBar(
+        backgroundColor: color,
         title: AppText(
           text: title,
           fontSize: fontSize,
@@ -36,17 +44,20 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       );
     } else {
       return AppBar(
+        backgroundColor: color,
         title: AppText(
           text: title,
           fontSize: fontSize,
         ),
         elevation: 0,
         leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(
+          onTap: onTapBack ??
+              () {
+                Navigator.pop(context);
+              },
+          child: Icon(
             Icons.arrow_back_ios,
+            color: iconColor ?? AppColors.white,
           ),
         ),
       );
