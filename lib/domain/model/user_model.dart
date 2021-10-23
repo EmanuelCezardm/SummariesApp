@@ -19,6 +19,9 @@ class UserModel {
   String get password => _passwordUser;
   bool get isAdmin => _isAdminUser;
 
+  setName(String name) => _nameUser = name;
+  setCellPhone(String phone) => _cellPhoneUser = phone;
+
   UserModel.fromJson(Map json) {
     _nameUser = json['nome_usuario'];
     _cellPhoneUser = json['telefone_usuario'];

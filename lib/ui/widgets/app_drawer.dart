@@ -33,6 +33,7 @@ class AppDrawer extends StatelessWidget {
         text: 'Perfil',
         onTap: () {
           Navigator.pop(context);
+          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(

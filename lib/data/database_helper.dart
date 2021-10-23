@@ -86,10 +86,10 @@ class DatabaseHelper {
     ****************************************************************/
 
     sql =
-        "INSERT INTO usuarios (email_usuario, nome_usuario, telefone_usuario, senha_usuario, admin_usuario) VALUES ('SummariesApp@gmail.com', 'Equipe admin', '82940028922', 'summariesapp06', 1);";
+        "INSERT INTO usuarios (email_usuario, nome_usuario, telefone_usuario, senha_usuario, admin_usuario) VALUES ('SummariesApp@gmail.com', 'Equipe admin', '(82) 9 4002-8922', 'summariesapp06', 1);";
     await db.execute(sql);
     sql =
-        "INSERT INTO usuarios (email_usuario, nome_usuario, telefone_usuario, senha_usuario, admin_usuario) VALUES ('teste@gmail.com', 'teste', '82999999999', '12345678', 0);";
+        "INSERT INTO usuarios (email_usuario, nome_usuario, telefone_usuario, senha_usuario, admin_usuario) VALUES ('teste@gmail.com', 'teste', '(82) 9 9999-9999', '12345678', 0);";
     await db.execute(sql);
 
     /****************************************************************

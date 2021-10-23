@@ -68,4 +68,22 @@ class UserDao {
         "INSERT INTO $tableName (email_usuario, nome_usuario, telefone_usuario, senha_usuario, admin_usuario) VALUES ('${user.email}', '${user.name}', '${user.cellPhone}', '${user.password}', 0);";
     await db.rawInsert(sql);
   }
+
+  Future updateName(String email_usuario, String nome_usuario) async {
+    DatabaseHelper database = DatabaseHelper();
+    Database db = await database.db;
+
+    String sql =
+        "UPDATE $tableName SET nome_usuario = '$nome_usuario' WHERE email_usuario = '$email_usuario';";
+    await db.rawUpdate(sql);
+  }
+
+  Future updateCellPhone(String email_usuario, String telefone_usuario) async {
+    DatabaseHelper database = DatabaseHelper();
+    Database db = await database.db;
+
+    String sql =
+        "UPDATE $tableName SET telefone_usuario = '$telefone_usuario' WHERE email_usuario = '$email_usuario';";
+    await db.rawUpdate(sql);
+  }
 }
