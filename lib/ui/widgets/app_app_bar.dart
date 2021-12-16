@@ -36,18 +36,24 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     if (subjectScreen) {
       return AppBar(
         backgroundColor: color,
-        title: AppText(
-          text: title,
-          fontSize: fontSize,
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: AppText(
+            text: title,
+            fontSize: fontSize,
+          ),
         ),
         elevation: 0,
       );
     } else {
       return AppBar(
         backgroundColor: color,
-        title: AppText(
-          text: title,
-          fontSize: fontSize,
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: AppText(
+            text: title,
+            fontSize: fontSize,
+          ),
         ),
         elevation: 0,
         leading: GestureDetector(

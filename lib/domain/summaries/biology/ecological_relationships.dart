@@ -1,6 +1,6 @@
 final List<Map<String, dynamic>> resumoRelacoesEcologicas = [
   {
-    'text': 'Relações Eco.',
+    'text': 'Relações Ecológicas',
     'id_type': 6,
   },
   {
