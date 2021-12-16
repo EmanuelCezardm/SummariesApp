@@ -6,7 +6,7 @@ import 'package:summaries_app/domain/summaries/chemistry/Inorganic_chemistry.dar
 import 'package:summaries_app/domain/summaries/chemistry/basic_concepts_of_chemistry.dart';
 import 'package:summaries_app/domain/summaries/chemistry/physicochemical.dart';
 import 'package:summaries_app/domain/summaries/geography/basic_concepts_of_geography.dart';
-import "package:summaries_app/domain/summaries/geography/dynamics_of_the_earth's_crust.dart";
+import 'package:summaries_app/domain/summaries/geography/dynamics_of_the_earths_crust.dart';
 import 'package:summaries_app/domain/summaries/geography/rotation_and_translation_of_the_earth.dart';
 import 'package:summaries_app/domain/summaries/geography/timezones.dart';
 import 'package:summaries_app/domain/summaries/history/ancient_egypt.dart';
