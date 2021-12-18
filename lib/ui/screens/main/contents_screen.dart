@@ -6,7 +6,9 @@ import 'package:summaries_app/domain/model/contents_model.dart';
 import 'package:summaries_app/domain/model/favorite_model.dart';
 import 'package:summaries_app/domain/model/subjects_model.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
+import 'package:summaries_app/static/summaries_group.dart';
 import 'package:summaries_app/ui/screens/admin/edit_contents_screen.dart';
+import 'package:summaries_app/ui/screens/main/summaries_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 import 'package:summaries_app/ui/widgets/app_card.dart';
@@ -107,6 +109,8 @@ class _ContentsScreenState extends State<ContentsScreen> {
   }
 
   _buildBody(contentsList, favoritesList) {
+    final List resumo = getGroupList(subject.idSubject);
+
     return ListView.builder(
       padding: const EdgeInsets.all(8),
       physics: const BouncingScrollPhysics(),
@@ -118,7 +122,18 @@ class _ContentsScreenState extends State<ContentsScreen> {
           text: contentsList[index].nameContents,
           fontSize: 26,
           onPressed: () {
-            Navigator.pushNamed(context, '/summaries');
+            for (var i = 0; i < resumo.length; i++) {
+              if (resumo[i][0]['text'] == contentsList[index].nameContents) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SummariesScreen(
+                      resumo: resumo[i],
+                    ),
+                  ),
+                );
+              }
+            }
           },
           idContents: contentsList[index].idContents,
           idSubject: subject.idSubject,

@@ -74,5 +74,6 @@ final List<Map<String, dynamic>> resumoConceitosGeo = [
 2 = paragrafo normal, 
 3 = topico, 
 4 = subtópico
-5 = fonte*/
+5 = fonte
+6 = exemplo*/
 

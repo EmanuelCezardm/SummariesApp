@@ -30,7 +30,7 @@ class _AboutScreenState extends State<AboutScreen> {
   _buildbody() {
     return SingleChildScrollView(
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Column(
           children: [
             _buildTopicos(

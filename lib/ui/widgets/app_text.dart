@@ -6,6 +6,7 @@ class AppText extends StatelessWidget {
   final String fontFamily;
   final Color? color;
   final TextAlign align;
+  final bool bold;
 
   const AppText({
     Key? key,
@@ -14,6 +15,7 @@ class AppText extends StatelessWidget {
     this.fontFamily = 'Raleway',
     this.color,
     this.align = TextAlign.justify,
+    this.bold = false,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class AppText extends StatelessWidget {
         fontSize: fontSize,
         fontFamily: fontFamily,
         color: color,
+        fontWeight: bold ? FontWeight.bold : FontWeight.normal,
       ),
     );
   }

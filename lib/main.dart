@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/screens/menu/about_screen.dart';
 import 'package:summaries_app/ui/screens/user/password_recovery_screen.dart';
-import 'package:summaries_app/ui/screens/menu/profile_screen.dart';
 import 'package:summaries_app/ui/screens/user/register_screen.dart';
 import 'package:summaries_app/ui/screens/user/login_screen.dart';
 import 'package:summaries_app/ui/screens/splash/splash_screen.dart';
-import 'package:summaries_app/ui/screens/main/summaries_screen.dart';
 import 'package:summaries_app/ui/styles/app_theme.dart';
 
 void main() {
@@ -30,7 +28,6 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/about': (context) => const AboutScreen(),
         '/register': (context) => const RegisterScreen(),
-        '/summaries': (context) => const SummariesScreen(),
         '/passwordRecovery': (context) => const PasswordRecoveryScreen(),
       },
       home: const SplashScreen(),
