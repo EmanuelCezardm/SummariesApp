@@ -37,7 +37,7 @@ class _SummariesScreenState extends State<SummariesScreen> {
 
   _buildbody() {
     return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       itemCount: resumo.length,
       itemBuilder: (context, index) {
         if (index != 0) {
@@ -62,6 +62,8 @@ class _SummariesScreenState extends State<SummariesScreen> {
         return _buildSubtopico(text);
       case 5:
         return _buildFonte(text);
+      case 6:
+        return _buildExemplos(text);
     }
   }
 
@@ -98,6 +100,7 @@ class _SummariesScreenState extends State<SummariesScreen> {
 
   _buildParagrafo(String text) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppText(
           text: text,
@@ -117,10 +120,10 @@ class _SummariesScreenState extends State<SummariesScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(width: 16),
-            Icon(
+            const Icon(
               Icons.circle,
-              color: Colors.grey[800],
-              size: 7,
+              color: AppColors.blue,
+              size: 8,
             ),
             const SizedBox(width: 6),
             Expanded(
@@ -169,6 +172,29 @@ class _SummariesScreenState extends State<SummariesScreen> {
           fontSize: 11,
           color: Colors.grey[800],
           fontFamily: "Releway-Bold",
+        ),
+        const SizedBox(height: 4),
+      ],
+    );
+  }
+
+  _buildExemplos(String text) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const SizedBox(width: 48),
+            Expanded(
+              child: AppText(
+                text: text,
+                fontSize: 13,
+                color: Colors.grey[800],
+                fontFamily: "Releway-Bold",
+                bold: true,
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 10),
       ],
