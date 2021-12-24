@@ -5,7 +5,7 @@ final List<Map<String, dynamic>> resumoFigurasSonoras = [
   },
   {
     'text': 'Figuras sonoras',
-    'id_type': 1,
+    'id_type': 0,
   },
   {
     'text':
@@ -15,7 +15,7 @@ final List<Map<String, dynamic>> resumoFigurasSonoras = [
   {
     'text':
         'Exemplo: “Vai, vem, volta, vem na vara, vai não volta, vai varando.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text': 'Assonância - Repetição de fonemas vocálicos.',
@@ -23,7 +23,7 @@ final List<Map<String, dynamic>> resumoFigurasSonoras = [
   },
   {
     'text': 'Exemplo: “A ponte aponta e se desaponta.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -32,7 +32,7 @@ final List<Map<String, dynamic>> resumoFigurasSonoras = [
   },
   {
     'text': 'Exemplo: “Os magnetes atraem o ferro; os magnatas, o ouro.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text': 'Onomatopeia - Palavras criadas com o objetivo de imitar sons.',
@@ -40,6 +40,6 @@ final List<Map<String, dynamic>> resumoFigurasSonoras = [
   },
   {
     'text': 'Exemplo: “atchim”, imitando um espirro.',
-    'id_type': 2,
+    'id_type': 6,
   },
 ];

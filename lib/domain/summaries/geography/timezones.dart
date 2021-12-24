@@ -38,7 +38,11 @@ final List<Map<String, dynamic>> resumoFusosHorarios = [
     'id_type': 2,
   },
   {
-    'text': 'FONTE: https://www.todamateria.com.br/fusos-horarios/',
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
+    'text': 'https://www.todamateria.com.br/fusos-horarios/',
     'id_type': 5,
   },
 ];

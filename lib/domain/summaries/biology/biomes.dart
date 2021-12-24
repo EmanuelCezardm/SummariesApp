@@ -148,7 +148,7 @@ final List<Map<String, dynamic>> resumoBiomas = [
   },
   {
     'text': 'Referências: ',
-    'id_type': 3,
+    'id_type': 1,
   },
   {
     'text': 'https://api.plurall.net/media_viewer/documents/2597311',

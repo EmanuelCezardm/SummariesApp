@@ -62,8 +62,12 @@ final List<Map<String, dynamic>> resumoConceitosGeo = [
     'id_type': 2,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'FONTE:https://brasilescola.uol.com.br/geografia/conceitos-geografia.htm',
+        'https://brasilescola.uol.com.br/geografia/conceitos-geografia.htm',
     'id_type': 5,
   },
 ];

@@ -51,8 +51,12 @@ final List<Map> resumoGreciaAntiga = [
     'id_type': 2,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'FONTE: https://api-prodigio.s3.amazonaws.com/content/materiais/f016ca55-bc90-4633-b65e-b1df0a6d6dad.pdf',
+        'https://api-prodigio.s3.amazonaws.com/content/materiais/f016ca55-bc90-4633-b65e-b1df0a6d6dad.pdf',
     'id_type': 5,
   },
 ];

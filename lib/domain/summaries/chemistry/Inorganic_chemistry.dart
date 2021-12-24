@@ -63,8 +63,12 @@ final List<Map<String, dynamic>> resumoQuimicaInorganica = [
     'id_type': 2,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'Fonte:https://brasilescola.uol.com.br/quimica/quimica-inorganica.htm',
+        'https://brasilescola.uol.com.br/quimica/quimica-inorganica.htm',
     'id_type': 5,
   },
 ];

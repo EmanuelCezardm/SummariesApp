@@ -5,7 +5,7 @@ final List<Map> resumoTeoriasSociologicas = [
   },
   {
     'text':
-        ' Teorias sociológicas clássicas: Comte, Durkheim, Engels e Marx, Weber.',
+        'Teorias sociológicas clássicas: Comte, Durkheim, Engels e Marx, Weber.',
     'id_type': 0,
   },
   {
@@ -93,12 +93,12 @@ final List<Map> resumoTeoriasSociologicas = [
   },
   {
     'text':
-        ' infra estrutura: são as forças de produção e as relações de produção. Constitui o fundamento, a base econômica da sociedade;',
+        ' Infra estrutura: são as forças de produção e as relações de produção. Constitui o fundamento, a base econômica da sociedade;',
     'id_type': 3,
   },
   {
     'text':
-        ' superestrutura: explica, legitima, sacraliza, reproduz as práticas já existentes na sociedade. São normas, leis, estatutos, códigos, ética, educação, família, religião etc. São mecanismos criados pela sociedade para reprodução e manutenção dessa própria sociedade.',
+        ' Superestrutura: explica, legitima, sacraliza, reproduz as práticas já existentes na sociedade. São normas, leis, estatutos, códigos, ética, educação, família, religião etc. São mecanismos criados pela sociedade para reprodução e manutenção dessa própria sociedade.',
     'id_type': 3,
   },
   {
@@ -107,12 +107,12 @@ final List<Map> resumoTeoriasSociologicas = [
   },
   {
     'text':
-        ' a) aparelhos repressivos: os que usam a força, a repressão. Exército, polícia, leis, prisões, tribunais etc.',
+        ' a) Aparelhos repressivos: os que usam a força, a repressão. Exército, polícia, leis, prisões, tribunais etc.',
     'id_type': 3,
   },
   {
     'text':
-        'b) aparelhos ideológicos: usam a “persuasão” para atingir seus objetivos, usam a ideia. Escola, família, igreja, meios de comunicação social (rádio, TV, jornais, cinema, revistas), clubes etc.  ',
+        'b) Aparelhos ideológicos: usam a “persuasão” para atingir seus objetivos, usam a ideia. Escola, família, igreja, meios de comunicação social (rádio, TV, jornais, cinema, revistas), clubes etc.  ',
     'id_type': 3,
   },
   {
@@ -145,17 +145,17 @@ final List<Map> resumoTeoriasSociologicas = [
     'id_type': 2,
   },
   {
-    'text': 'generalidade: o fato social é comum aos membros de um grupo; ',
+    'text': 'Generalidade: o fato social é comum aos membros de um grupo; ',
     'id_type': 3,
   },
   {
     'text':
-        'exterioridade: o fato social é externo ao indivíduo, existe independentemente de sua vontade; ',
+        'Exterioridade: o fato social é externo ao indivíduo, existe independentemente de sua vontade; ',
     'id_type': 3,
   },
   {
     'text':
-        'coercitividade: os indivíduos se vêem obrigados a seguir o comportamento estabelecido. ',
+        'Coercitividade: os indivíduos se vêem obrigados a seguir o comportamento estabelecido. ',
     'id_type': 3,
   },
   {
@@ -194,22 +194,26 @@ final List<Map> resumoTeoriasSociologicas = [
   },
   {
     'text':
-        'na sociedade tradicional (tribo, clã, família, sociedade medieval) predominam características patriarcais e patrimonialistas; a autoridade que a preside é histórica, advinda muitas vezes do direito divino, transmissível por herança ou dinastia;  ',
+        'Na sociedade tradicional (tribo, clã, família, sociedade medieval) predominam características patriarcais e patrimonialistas; a autoridade que a preside é histórica, advinda muitas vezes do direito divino, transmissível por herança ou dinastia;  ',
     'id_type': 3,
   },
   {
     'text':
-        'na sociedade carismática (partidos políticos, grupos revolucionários, nações em revolução) predominam características místicas, arbitrárias e personalistas; a autoridade que a preside é exercida pela influência pessoal ou pelo poder extraordinário exercido por uma pessoa; ',
+        'Na sociedade carismática (partidos políticos, grupos revolucionários, nações em revolução) predominam características místicas, arbitrárias e personalistas; a autoridade que a preside é exercida pela influência pessoal ou pelo poder extraordinário exercido por uma pessoa; ',
     'id_type': 3,
   },
   {
     'text':
-        ' na sociedade burocrática (os estados modernos, as empresas, os exércitos) predominam normas impessoais e uma racionalidade na seleção entre meios e fins; o tipo de autoridade exercida é técnica, meritocrática e administrada.',
+        'Na sociedade burocrática (os estados modernos, as empresas, os exércitos) predominam normas impessoais e uma racionalidade na seleção entre meios e fins; o tipo de autoridade exercida é técnica, meritocrática e administrada.',
     'id_type': 3,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'FONTE: ttp://arquivos.eadadm.ufsc.br/EaDADM/UAB_2011_1/Modulo_1/Sociologia/material_didatico/textos_complementares/Teorias%20Sociologicas%20Classicas.pdf',
+        'http://arquivos.eadadm.ufsc.br/EaDADM/UAB_2011_1/Modulo_1/Sociologia/material_didatico/textos_complementares/Teorias%20Sociologicas%20Classicas.pdf',
     'id_type': 5,
   },
 ];

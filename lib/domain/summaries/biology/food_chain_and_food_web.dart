@@ -33,16 +33,16 @@ final List<Map<String, dynamic>> resumoCadeiaAlimentar = [
   {
     'text':
         'Consumidores: Composto por todos os animais, carnívoros, onívoros, herbívoros e detritívoros. Esses seres se alimentam de outros organismos seguindo uma ordem. Os indivíduos que se alimentam de produtores são chamados de consumidores primários, normalmente são herbívoros. Os que se alimentam dos consumidores primários recebem o nome de consumidores secundários, seguindo a sequência tem os consumidores terciários, e assim sucessivamente.',
-    'id_type': 2,
+    'id_type': 3,
   },
   {
     'text':
         'Decompositores: Seres heterótrofos, normalmente representado por fungos e bactérias, que utilizam a matéria orgânica presente nos produtores ou em consumidores mortos, Eles se alimentam de algumas partes da decomposição, liberando minerais e substâncias que podem ser reutilizadas por produtores.',
-    'id_type': 2,
+    'id_type': 3,
   },
   {
     'text': 'Referências: ',
-    'id_type': 3,
+    'id_type': 1,
   },
   {
     'text': 'https://api.plurall.net/media_viewer/documents/2597311',

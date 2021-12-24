@@ -86,7 +86,11 @@ final List<Map> resumoPreSocraticosCosmologia = [
     'id_type': 2,
   },
   {
-    'text': 'FONTE: https://www.todamateria.com.br/filosofos-pre-socraticos/',
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
+    'text': 'https://www.todamateria.com.br/filosofos-pre-socraticos/',
     'id_type': 5,
   },
 ];

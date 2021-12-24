@@ -64,8 +64,12 @@ final List<Map> resumoMesopotamia = [
     'id_type': 2,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'FONTE: https://api-prodigio.s3.amazonaws.com/content/materiais/b2e54b6c-4875-406a-938a-e1dd41ed663e.pdf',
+        'https://api-prodigio.s3.amazonaws.com/content/materiais/b2e54b6c-4875-406a-938a-e1dd41ed663e.pdf',
     'id_type': 5,
   },
 ];

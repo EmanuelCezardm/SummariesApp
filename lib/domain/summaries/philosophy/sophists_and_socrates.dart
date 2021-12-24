@@ -77,7 +77,11 @@ final List<Map> resumoSofistasSocrates = [
     'id_type': 1,
   },
   {
-    'text': 'FONTES: https://www.todamateria.com.br/socrates/',
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
+    'text': 'https://www.todamateria.com.br/socrates/',
     'id_type': 5,
   },
 ];

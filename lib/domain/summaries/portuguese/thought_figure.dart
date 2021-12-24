@@ -5,7 +5,7 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   },
   {
     'text': 'Figuras de Linguagem',
-    'id_type': 1,
+    'id_type': 0,
   },
   {
     'text': 'Hipérbole - Ocorre ao se referir a algo de forma exagerada.',
@@ -13,7 +13,7 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   },
   {
     'text': 'Exemplo: “Chorou rios de lágrimas.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -23,7 +23,7 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   {
     'text':
         'Exemplo: “O pai de Ricardo sempre soube que o filho tinha um caráter duvidoso.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -32,7 +32,7 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   },
   {
     'text': 'Exemplo: “O jardim olhava as crianças sem dizer nada.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -41,7 +41,7 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   },
   {
     'text': 'Exemplo: “A relação deles era de amor e ódio.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -50,7 +50,7 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   },
   {
     'text': 'Exemplo: “Eu estou cheio de me sentir vazio.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -59,7 +59,7 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   },
   {
     'text': 'Exemplo: “É pau, é pedra, é o fim do caminho.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -68,11 +68,15 @@ final List<Map<String, dynamic>> resumoFiguraDeLinguagem = [
   },
   {
     'text': 'Exemplo: “Ó meu querido Santo António”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text': 'Referências:',
     'id_type': 3,
+  },
+  {
+    'text': 'Referências:',
+    'id_type': 1,
   },
   {
     'text':

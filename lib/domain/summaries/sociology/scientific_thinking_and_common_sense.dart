@@ -4,7 +4,7 @@ final List<Map> resumoPensamentoCientifico = [
     'id_type': 6,
   },
   {
-    'text': ' Pensamento científico e senso comum.',
+    'text': 'Pensamento científico e senso comum.',
     'id_type': 0,
   },
   {
@@ -48,8 +48,12 @@ final List<Map> resumoPensamentoCientifico = [
     'id_type': 2,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'FONTE: https://www.infoescola.com/filosofia/conhecimento-cientifico-e-senso-comum/',
+        'https://www.infoescola.com/filosofia/conhecimento-cientifico-e-senso-comum/',
     'id_type': 5,
   },
 ];

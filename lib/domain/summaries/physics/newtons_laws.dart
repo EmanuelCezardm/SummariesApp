@@ -5,10 +5,10 @@ final List<Map> resumoLeisDeNewton = [
   },
   {
     'text': 'Leis de Newton',
-    'id_type': 1,
+    'id_type': 0,
   },
   {
-    'text': 'Primeira lei de Newton: Lei da Inércia',
+    'text': 'Primeira lei de Newton - Lei da Inércia',
     'id_type': 1,
   },
   {

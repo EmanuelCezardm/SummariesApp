@@ -37,7 +37,7 @@ final List<Map<String, dynamic>> resumoConceitosBasicosBio = [
   },
   {
     'text': 'Conceitos básicos',
-    'id_type': 3,
+    'id_type': 1,
   },
   {
     'text': 'Habitat: Área ocupada por essa espécie na natureza.',
@@ -83,8 +83,8 @@ final List<Map<String, dynamic>> resumoConceitosBasicosBio = [
     'id_type': 2,
   },
   {
-    'text': 'FONTE:',
-    'id_type': 3,
+    'text': 'Referências:',
+    'id_type': 1,
   },
   {
     'text': 'https://mundoeducacao.uol.com.br/biologia/ecologia.htm',
