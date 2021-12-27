@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 
@@ -48,13 +47,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     } else {
       return AppBar(
         backgroundColor: color,
-        title: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: AppText(
-            text: title,
-            fontSize: fontSize,
-          ),
-        ),
+        title: _buildtitle(),
         elevation: 0,
         leading: GestureDetector(
           onTap: onTapBack ??
@@ -68,5 +61,18 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       );
     }
+  }
+
+  _buildtitle() {
+    if (title != "") {
+      return FittedBox(
+        fit: BoxFit.scaleDown,
+        child: AppText(
+          text: title,
+          fontSize: fontSize,
+        ),
+      );
+    }
+    return Container();
   }
 }
