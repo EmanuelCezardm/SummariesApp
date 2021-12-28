@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:summaries_app/data/dao/usersdao.dart';
+import 'package:summaries_app/data/shared_preferences_helper.dart';
 import 'package:summaries_app/ui/screens/main/home_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_elevated_icon_button.dart';
@@ -156,13 +157,16 @@ class _LoginScreenState extends State<LoginScreen> {
   _formValidator() async {
     if (!_formKey.currentState!.validate()) return;
 
+    SharedPreferencesHelper sharedPreferences = SharedPreferencesHelper();
+
     final list = await UserDao().fetchUserByEmailPassword(
         _emailController.text, _passwordController.text);
+
     if (list.isEmpty) {
       _functionUserIsEmpty(context);
     } else {
-      Navigator.pop(context);
-      Navigator.push(
+      sharedPreferences.setUser(true, list[0].email, list[0].password);
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => HomeScreen(
