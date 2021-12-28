@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:summaries_app/data/dao/usersdao.dart';
+import 'package:summaries_app/data/shared_preferences_helper.dart';
+import 'package:summaries_app/ui/screens/main/home_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -11,9 +14,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    splash(context);
-
     super.initState();
+    _loadData();
   }
 
   @override
@@ -29,9 +31,35 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  void splash(context) {
-    Future.delayed(const Duration(milliseconds: 2500)).then((value) {
-      Navigator.popAndPushNamed(context, "/login");
-    });
+  _loadData() async {
+    SharedPreferencesHelper sharedPreferences = SharedPreferencesHelper();
+    Map user = await sharedPreferences.getUser();
+
+    if (user['USERLOGGED']) {
+      final list = await UserDao()
+          .fetchUserByEmailPassword(user['USEREMAIL'], user['USERPASSWORD']);
+      return splash(context, list[0], 1);
+    } else {
+      return splash(context, null, 0);
+    }
+  }
+
+  void splash(context, user, page) {
+    Future.delayed(const Duration(milliseconds: 2500)).then(
+      (value) {
+        if (page == 1) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(
+                user: user,
+              ),
+            ),
+          );
+        } else {
+          Navigator.pushReplacementNamed(context, "/login");
+        }
+      },
+    );
   }
 }
