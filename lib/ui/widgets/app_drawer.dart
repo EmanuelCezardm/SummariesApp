@@ -76,8 +76,11 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.logout_outlined,
         text: 'Sair',
         onTap: () {
-          Navigator.pushNamedAndRemoveUntil(
-              context, '/login', (route) => false);
+          _functionshowDialog(
+            context: context,
+            text: 'Quer mesmo sair',
+            textButtons: 2,
+          );
         },
       ),
     ];
@@ -131,5 +134,87 @@ class AppDrawer extends StatelessWidget {
         );
       },
     );
+  }
+
+  _functionshowDialog({context, text, textButtons}) {
+    if (textButtons == 1) {
+      return showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            actionsAlignment: MainAxisAlignment.center,
+            backgroundColor: AppColors.background,
+            title: const AppText(
+              fontSize: 20,
+              text: 'Quer mesmo sair?',
+              align: TextAlign.center,
+              fontFamily: 'Raleway',
+            ),
+            actions: [
+              CupertinoButton(
+                child: const AppText(
+                  fontSize: 20,
+                  fontFamily: 'Raleway',
+                  text: 'Fechar',
+                  color: AppColors.blue,
+                  align: TextAlign.center,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }else if (textButtons == 2){
+      return showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            actionsAlignment: MainAxisAlignment.center,
+            backgroundColor: AppColors.background,
+            title: const AppText(
+              fontSize: 20,
+              text: 'Quer mesmo sair?',
+              align: TextAlign.center,
+              fontFamily: 'Raleway',
+            ),
+            actions: [
+              CupertinoButton(
+                child: const AppText(
+                  fontSize: 20,
+                  fontFamily: 'Raleway',
+                  text: 'Cancelar',
+                  color: AppColors.blue,
+                  align: TextAlign.center,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              CupertinoButton(
+                child: const AppText(
+                  fontSize: 20,
+                  fontFamily: 'Raleway',
+                  text: 'Sair',
+                  color: AppColors.blue,
+                  align: TextAlign.center,
+                ),
+                onPressed: () {
+                   Navigator.pushNamedAndRemoveUntil(
+                       context, '/login', (route) => false);
+                },
+              ),
+            ],
+          );
+        },
+      );
+
+
+    }
+
   }
 }
