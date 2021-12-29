@@ -43,12 +43,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       iconColor: AppColors.blue,
       onTapBack: () {
         Navigator.pop(context);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProfileScreen(user: user),
-          ),
-        );
       },
       color: AppColors.white,
       title: title,
@@ -173,12 +167,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             onPressed: () {
               Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ProfileScreen(user: user),
-                ),
-              );
             },
             child: const Text(
               "CANCELAR",
@@ -278,6 +266,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 if (function == 0) {
                   Navigator.pop(context);
                 } else {
+                  Navigator.pop(context);
                   Navigator.pop(context);
                   Navigator.pushReplacement(
                     context,

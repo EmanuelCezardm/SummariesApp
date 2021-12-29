@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:summaries_app/data/shared_preferences_helper.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
 import 'package:summaries_app/ui/screens/menu/favorites_screen.dart';
 import 'package:summaries_app/ui/screens/menu/profile_screen.dart';
@@ -32,7 +33,7 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.account_circle_outlined,
         text: 'Perfil',
         onTap: () {
-          Navigator.pushreplecement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => ProfileScreen(user: user),
@@ -44,7 +45,7 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.star_border_outlined,
         text: 'Favoritos',
         onTap: () {
-          Navigator.pushreplecement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => FavoritesScreen(
@@ -69,7 +70,7 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.info_outlined,
         text: 'Sobre',
         onTap: () {
-          Navigator.pushreplecement(context, '/about');
+          Navigator.pushNamed(context, '/about');
         },
       ),
       _buildListTile(
@@ -145,8 +146,8 @@ class AppDrawer extends StatelessWidget {
               AppCupertinoButton(
                 text: 'Sair',
                 onPressed: () {
-                  SharedPreferences instance = SharedPreferencesHelper();
-                  instance.setUser(status: false, email:'', password:'');
+                  SharedPreferencesHelper instance = SharedPreferencesHelper();
+                  instance.setUser(false, '', '');
                   Navigator.pushNamedAndRemoveUntil(
                       context, '/login', (route) => false);
                 },

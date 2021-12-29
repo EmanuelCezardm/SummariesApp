@@ -40,12 +40,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         onPressed: () {
           Navigator.pop(context);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomeScreen(user: user),
-            ),
-          );
         },
       ),
     );
@@ -190,7 +184,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             fontSize: 24,
             text: 'EDITAR',
             onPressed: () {
-              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(
