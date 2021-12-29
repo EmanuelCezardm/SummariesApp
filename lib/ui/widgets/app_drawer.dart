@@ -32,8 +32,7 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.account_circle_outlined,
         text: 'Perfil',
         onTap: () {
-          Navigator.pop(context);
-          Navigator.push(
+          Navigator.pushreplecement(
             context,
             MaterialPageRoute(
               builder: (context) => ProfileScreen(user: user),
@@ -45,8 +44,7 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.star_border_outlined,
         text: 'Favoritos',
         onTap: () {
-          Navigator.pop(context);
-          Navigator.push(
+          Navigator.pushreplecement(
             context,
             MaterialPageRoute(
               builder: (context) => FavoritesScreen(
@@ -71,8 +69,7 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.info_outlined,
         text: 'Sobre',
         onTap: () {
-          Navigator.pop(context);
-          Navigator.pushNamed(context, '/about');
+          Navigator.pushreplecement(context, '/about');
         },
       ),
       _buildListTile(
@@ -148,6 +145,8 @@ class AppDrawer extends StatelessWidget {
               AppCupertinoButton(
                 text: 'Sair',
                 onPressed: () {
+                  SharedPreferences instance = SharedPreferencesHelper();
+                  instance.setUser(status: false, email:'', password:'');
                   Navigator.pushNamedAndRemoveUntil(
                       context, '/login', (route) => false);
                 },
