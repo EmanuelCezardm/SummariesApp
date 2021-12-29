@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
-import 'package:summaries_app/ui/screens/main/home_screen.dart';
 import 'package:summaries_app/ui/screens/menu/edit_profile_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_elevated_button.dart';
