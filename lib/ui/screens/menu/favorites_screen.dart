@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/data/dao/contentsdao.dart';
 import 'package:summaries_app/data/dao/favoritedao.dart';

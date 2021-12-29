@@ -75,12 +75,12 @@ final List<Map<String, dynamic>> resumoRelacoesEcologicas = [
   },
   {
     'text':
-        'Parasitismo: Quando um corpo vivo é utilizado como fonte de recursos alimentares para outro indivíduo, chamado de parasita, essa ação normalmente não mata o hospedeiro, mas acaba prejudicando-o. Esses parasitas podem ser externos ( ectoparasitas) ou internos (endoparasitas).',
+        'Parasitismo: Quando um corpo vivo é utilizado como fonte de recursos alimentares para outro indivíduo, chamado de parasita, essa ação normalmente não mata o hospedeiro, mas acaba prejudicando-o. Esses parasitas podem ser externos (ectoparasitas) ou internos (endoparasitas).',
     'id_type': 2,
   },
   {
     'text': 'Referências:',
-    'id_type': 3,
+    'id_type': 1,
   },
   {
     'text': 'https://api.plurall.net/media_viewer/documents/2597311',

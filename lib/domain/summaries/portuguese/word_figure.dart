@@ -5,7 +5,7 @@ final List<Map<String, dynamic>> resumoFiguraDePalavra = [
   },
   {
     'text': 'Figuras de Palavra',
-    'id_type': 1,
+    'id_type': 0,
   },
   {
     'text':
@@ -15,7 +15,7 @@ final List<Map<String, dynamic>> resumoFiguraDePalavra = [
   {
     'text':
         'Exemplo: “Você trabalha com danone” (a marca pelo produto). “Sofia é boa de garfo” (o continente pelo conteúdo)',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -25,7 +25,7 @@ final List<Map<String, dynamic>> resumoFiguraDePalavra = [
   {
     'text':
         'Exemplo: “Meu amor me ensinou a ser simples como um largo de igreja.” ',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -34,7 +34,7 @@ final List<Map<String, dynamic>> resumoFiguraDePalavra = [
   },
   {
     'text': '	Exemplo: “Clara é uma flor”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -43,7 +43,7 @@ final List<Map<String, dynamic>> resumoFiguraDePalavra = [
   },
   {
     'text': 'Exemplo: “dente de alho”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -52,6 +52,6 @@ final List<Map<String, dynamic>> resumoFiguraDePalavra = [
   },
   {
     'text': 'Exemplo: “Eles tiveram uma discussão amarga.”',
-    'id_type': 2,
+    'id_type': 6,
   },
 ];

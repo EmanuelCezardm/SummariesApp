@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:summaries_app/data/shared_preferences_helper.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
 import 'package:summaries_app/ui/screens/menu/favorites_screen.dart';
 import 'package:summaries_app/ui/screens/menu/profile_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
+import 'package:summaries_app/ui/widgets/app_cupertino_button.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -32,8 +33,6 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.account_circle_outlined,
         text: 'Perfil',
         onTap: () {
-          Navigator.pop(context);
-          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -46,7 +45,6 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.star_border_outlined,
         text: 'Favoritos',
         onTap: () {
-          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -61,14 +59,17 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.supervisor_account_rounded,
         text: 'Fale Conosco',
         onTap: () {
-          _functionFaleConosco(context);
+          _functionshowDialog(
+            context: context,
+            text: 'SummariesApp@gmail.com',
+            textButtons: 1,
+          );
         },
       ),
       _buildListTile(
         icon: Icons.info_outlined,
         text: 'Sobre',
         onTap: () {
-          Navigator.pop(context);
           Navigator.pushNamed(context, '/about');
         },
       ),
@@ -76,8 +77,11 @@ class AppDrawer extends StatelessWidget {
         icon: Icons.logout_outlined,
         text: 'Sair',
         onTap: () {
-          Navigator.pushNamedAndRemoveUntil(
-              context, '/login', (route) => false);
+          _functionshowDialog(
+            context: context,
+            text: 'Deseja mesmo sair?',
+            textButtons: 2,
+          );
         },
       ),
     ];
@@ -100,36 +104,58 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  _functionFaleConosco(context) {
-    return showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          actionsAlignment: MainAxisAlignment.center,
-          backgroundColor: AppColors.background,
-          title: const AppText(
-            fontSize: 20,
-            text: 'SummariesApp@gmail.com',
-            align: TextAlign.center,
-            fontFamily: 'Raleway',
-          ),
-          actions: [
-            CupertinoButton(
-              child: const AppText(
-                fontSize: 20,
-                fontFamily: 'Raleway',
-                text: 'Fechar',
-                color: AppColors.blue,
-                align: TextAlign.center,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+  _functionshowDialog({context, text, textButtons}) {
+    if (textButtons == 1) {
+      return showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            actionsAlignment: MainAxisAlignment.center,
+            backgroundColor: AppColors.background,
+            title: AppText(
+              fontSize: 20,
+              text: text,
+              align: TextAlign.center,
             ),
-          ],
-        );
-      },
-    );
+            actions: const [
+              AppCupertinoButton(
+                text: 'Fechar',
+              ),
+            ],
+          );
+        },
+      );
+    } else if (textButtons == 2) {
+      return showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            actionsAlignment: MainAxisAlignment.center,
+            backgroundColor: AppColors.background,
+            title: AppText(
+              fontSize: 20,
+              text: text,
+              align: TextAlign.center,
+            ),
+            actions: [
+              const AppCupertinoButton(
+                text: 'Cancelar',
+              ),
+              AppCupertinoButton(
+                text: 'Sair',
+                onPressed: () {
+                  SharedPreferencesHelper instance = SharedPreferencesHelper();
+                  instance.setUser(false, '', '');
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/login', (route) => false);
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 }

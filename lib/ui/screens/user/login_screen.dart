@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:summaries_app/data/dao/usersdao.dart';
 import 'package:summaries_app/data/shared_preferences_helper.dart';
 import 'package:summaries_app/ui/screens/main/home_screen.dart';
@@ -26,25 +24,26 @@ class _LoginScreenState extends State<LoginScreen> {
   get onPressed => null;
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.blue,
-      body: SingleChildScrollView(
-        child: Column(children: [
-          _buildTitle(size),
-          _buildBody(size),
-        ]),
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildTitle(),
+            _buildBody(),
+          ],
+        ),
       ),
     );
   }
 
-  _buildTitle(size) {
-    return Container(
-      width: size.width,
-      height: size.height * .2,
-      padding: const EdgeInsets.only(top: 35),
+  _buildTitle() {
+    return FittedBox(
+      fit: BoxFit.scaleDown,
       child: Column(
         children: const [
+          SizedBox(height: 16),
           Text(
             'Login',
             style: TextStyle(
@@ -69,26 +68,20 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  _buildBody(size) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(left: 5, right: 5, top: 24),
-          height: size.height * .8,
-          child: Container(
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50),
-                  )),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                child: _buildForm(),
-              )),
+  _buildBody() {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 32),
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 48),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50),
+            topRight: Radius.circular(50),
+          ),
         ),
-      ],
+        child: _buildForm(),
+      ),
     );
   }
 
@@ -241,7 +234,6 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Container(
         padding: const EdgeInsets.only(
           top: 25,
-          bottom: 125,
         ),
         child: const Text(
           'Cadastre-se',

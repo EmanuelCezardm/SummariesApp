@@ -38,8 +38,12 @@ final List<Map<String, dynamic>> resumoRotacaoTranslacao = [
     'id_type': 2,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'FONTE: https://brasilescola.uol.com.br/o-que-e/geografia/o-que-e-rotacao-translacao.htm',
+        'https://brasilescola.uol.com.br/o-que-e/geografia/o-que-e-rotacao-translacao.htm',
     'id_type': 5,
   },
 ];

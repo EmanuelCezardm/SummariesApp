@@ -23,7 +23,11 @@ final List<Map<String, dynamic>> resumoFisicoQuimica = [
     'id_type': 2,
   },
   {
-    'text': 'Fonte: https://brasilescola.uol.com.br/quimica/fisico-quimica.htm',
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
+    'text': 'https://brasilescola.uol.com.br/quimica/fisico-quimica.htm',
     'id_type': 5,
   },
 ];

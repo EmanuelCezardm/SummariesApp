@@ -49,8 +49,12 @@ final List<Map<String, dynamic>> resumoDinamicaIntCrosta = [
     'id_type': 2,
   },
   {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
+  {
     'text':
-        'FONTE:https://mundoeducacao.uol.com.br/geografia/placas-tectonicas.htm',
+        'https://mundoeducacao.uol.com.br/geografia/placas-tectonicas.htm',
     'id_type': 5,
   },
 ];

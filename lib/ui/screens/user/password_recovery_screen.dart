@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_elevated_button.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
-import 'package:summaries_app/ui/screens/main/home_screen.dart';
 import 'package:summaries_app/ui/screens/menu/edit_profile_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_elevated_button.dart';
@@ -40,12 +39,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         onPressed: () {
           Navigator.pop(context);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomeScreen(user: user),
-            ),
-          );
         },
       ),
     );
@@ -190,7 +183,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             fontSize: 24,
             text: 'EDITAR',
             onPressed: () {
-              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(

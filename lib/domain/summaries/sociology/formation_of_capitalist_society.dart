@@ -53,9 +53,13 @@ final List<Map> resumoConsolidacaoSociedadeCapitalista = [
         'Houve a necessidade de uma nova conformação política da sociedade para que as relações sociais de produção se desenvolvessem com mais liberdade. O principal evento que marcou essa nova conformação política foi a Revolução Francesa de 1789, que através de uma ação violenta criou as instituições clássicas do capitalismo, como o parlamento, os códigos jurídicos, um exército moderno e a constituição de um poder executivo. Essa seria a estrutura política clássica do capitalismo.',
     'id_type': 2,
   },
+ {
+    'text': 'Referências:',
+    'id_type': 1,
+  },
   {
     'text':
-        ' FONTE: https://mundoeducacao.uol.com.br/historiageral/capitalismo.htm',
+        'https://mundoeducacao.uol.com.br/historiageral/capitalismo.htm',
     'id_type': 5,
   },
 ];

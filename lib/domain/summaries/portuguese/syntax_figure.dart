@@ -5,7 +5,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   },
   {
     'text': 'Figuras de Sintaxe',
-    'id_type': 1,
+    'id_type': 0,
   },
   {
     'text':
@@ -15,7 +15,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   {
     'text':
         '	Exemplo - “Eras na vida a pomba predileta.”, o “tu” é identificável mesmo não sendo expresso anteriormente.',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -24,7 +24,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   },
   {
     'text': 'Exemplo - “ Fabiana comeu maçã, eu (comi) pera.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -33,7 +33,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   },
   {
     'text': 'Exemplo - “Esses políticos de hoje, não se pode confiar.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -42,7 +42,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   },
   {
     'text': 'Exemplo: “Se eu amasse, se eu chorasse, se eu perdoasse.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -51,7 +51,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   },
   {
     'text': 'Exemplo: “Um DVD, Paulo comprou ontem”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -60,7 +60,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   },
   {
     'text': 'Exemplo: “Dolores brigava, e gritava, e falava.”',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -70,7 +70,7 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   {
     'text':
         'Exemplo: “Daiana comprou uvas para comer, limões para fazer suco", é possível notar a falta do “e” em “Daiana comprou uvas para comer, (e) limões para fazer suco”.',
-    'id_type': 2,
+    'id_type': 6,
   },
   {
     'text':
@@ -79,6 +79,6 @@ final List<Map<String, dynamic>> resumoFiguraDeSintaxe = [
   },
   {
     'text': 'Exemplo: “Vi, com os meus olhos, uma onça pintada”',
-    'id_type': 2,
+    'id_type': 6,
   }
 ];

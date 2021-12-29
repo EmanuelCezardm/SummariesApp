@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:summaries_app/data/dao/usersdao.dart';
@@ -6,6 +5,7 @@ import 'package:summaries_app/domain/model/user_model.dart';
 import 'package:summaries_app/ui/screens/menu/profile_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
+import 'package:summaries_app/ui/widgets/app_cupertino_button.dart';
 import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -32,7 +32,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(''),
+      appBar: _buildAppBar(""),
       body: _buildBody(),
       backgroundColor: AppColors.white,
     );
@@ -43,12 +43,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       iconColor: AppColors.blue,
       onTapBack: () {
         Navigator.pop(context);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProfileScreen(user: user),
-          ),
-        );
       },
       color: AppColors.white,
       title: title,
@@ -234,67 +228,53 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     if (_nameController.text.isEmpty && _phoneController.text.isNotEmpty) {
       UserDao().updateCellPhone(user.email, _phoneController.text);
       user.setCellPhone(_phoneController.text);
-      _functionShowDialog(context, 'Telefone alterado com sucesso');
+      _functionShowDialog(context, 'Telefone alterado com sucesso', 1);
     } else if (_nameController.text.isNotEmpty &&
         _phoneController.text.isEmpty) {
       UserDao().updateName(user.email, _nameController.text);
       user.setName(_nameController.text);
-      _functionShowDialog(context, 'Nome alterado com sucesso');
+      _functionShowDialog(context, 'Nome alterado com sucesso', 1);
     } else if (_nameController.text.isNotEmpty &&
         _phoneController.text.isNotEmpty) {
       UserDao().updateCellPhone(user.email, _phoneController.text);
       UserDao().updateName(user.email, _nameController.text);
       user.setCellPhone(_phoneController.text);
       user.setName(_nameController.text);
-      _functionShowDialog(context, 'Nome e Telefone alterados com sucesso');
+      _functionShowDialog(context, 'Nome e Telefone alterados com sucesso', 1);
     } else if (_nameController.text.isEmpty && _phoneController.text.isEmpty) {
-      _functionShowDialog(context, 'Você não alterou nenhum valor');
+      _functionShowDialog(context, 'Você não alterou nenhum valor', 0);
     }
   }
 
-  _functionShowDialog(context, text) {
+  _functionShowDialog(context, text, function) {
     return showDialog(
       barrierDismissible: false,
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          actionsAlignment: MainAxisAlignment.spaceBetween,
+          actionsAlignment: MainAxisAlignment.center,
           backgroundColor: AppColors.background,
           title: AppText(
             fontSize: 20,
             text: text,
             align: TextAlign.center,
-            fontFamily: 'Raleway',
           ),
           actions: [
-            CupertinoButton(
-              child: const AppText(
-                fontSize: 20,
-                fontFamily: 'Raleway',
-                text: 'Continuar',
-                color: AppColors.blue,
-                align: TextAlign.center,
-              ),
+            AppCupertinoButton(
+              text: 'Fechar',
               onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            CupertinoButton(
-              child: const AppText(
-                fontSize: 20,
-                fontFamily: 'Raleway',
-                text: 'Sair',
-                color: AppColors.blue,
-                align: TextAlign.center,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProfileScreen(user: user),
-                  ),
-                );
+                if (function == 0) {
+                  Navigator.pop(context);
+                } else {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfileScreen(user: user),
+                    ),
+                  );
+                }
               },
             ),
           ],
