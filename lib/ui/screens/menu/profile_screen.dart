@@ -175,6 +175,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         const SizedBox(
           height: 40,
+        ), 
+        TextFormField(
+          enabled: false,
+          decoration: const InputDecoration(
+            prefixIcon: Icon(
+              Icons.city_outlined,
+              color: AppColors.blue,
+              size: 40,
+            ),
+            labelText: 'Cidade',
+            labelStyle: TextStyle(
+              color: AppColors.blue,
+            ),
+          ),
+          initialValue: user.cidade,
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        TextFormField(
+          enabled: false,
+          decoration: const InputDecoration(
+            prefixIcon: Icon(
+              Icons.road_outlined,
+              color: AppColors.blue,
+              size: 40,
+            ),
+            labelText: 'Rua',
+            labelStyle: TextStyle(
+              color: AppColors.blue,
+            ),
+          ),
+          initialValue: user.rua,
+        ),
+        const SizedBox(
+          height: 40,
         ),
         SizedBox(
           width: double.maxFinite,
