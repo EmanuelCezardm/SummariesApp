@@ -20,6 +20,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _phoneController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _cepController = TextEditingController();
   bool passwordVisible = true;
   @override
   Widget build(BuildContext context) {
@@ -85,6 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   _buildForm(size) {
     var mask = MaskTextInputFormatter(mask: "(##) # ####-####");
+    var masks = MaskTextInputFormatter(mask: "#####-###");
     return Column(
       children: <Widget>[
         Padding(
@@ -193,7 +195,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       keyboardType: TextInputType.visiblePassword,
                     ),
                     const SizedBox(
-                      height: 64,
+                      height: 20,
+                    ),
+                    TextFormField(
+                      controller: _cepController,
+                      validator: _cepValidator,
+                      inputFormatters: [masks],
+                      decoration: const InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.add_location_alt_outlined,
+                          color: AppColors.blue,
+                          size: 40,
+                        ),
+                        labelText: 'CEP',
+                        hintText: 'Digite seu CEP',
+                        labelStyle: TextStyle(
+                          color: AppColors.blue,
+                        ),
+                      ),
+                      keyboardType: TextInputType.name,
+                    ),
+                    const SizedBox(
+                      height: 20,
                     ),
                     AppElevatedIconButton(
                       onPressed: _buildFunctionRegister,
@@ -277,6 +300,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     if (value.length < 8) {
       return 'O campo deve ter pelo menos 8 caracteres';
+    }
+    return null;
+  }
+
+  String? _cepValidator(value) {
+    if (value == null || value.isEmpty) {
+      return 'O campo é obrigatório!';
+    }
+    if (value.length < 9 && value.isNotEmpty) {
+      return 'Preencha o campo corretamente';
     }
     return null;
   }
