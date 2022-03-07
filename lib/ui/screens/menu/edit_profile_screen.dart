@@ -26,6 +26,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _streetController = TextEditingController();
+  final TextEditingController _cityController = TextEditingController();
 
   UserModel get user => widget.user;
 
@@ -146,6 +148,36 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             keyboardType: TextInputType.number,
             inputFormatters: [mask],
           ),
+          TextFormField(
+            controller: _streetController,
+            validator: _streetValidator,
+            decoration: const InputDecoration(
+              labelText: 'Rua',
+              labelStyle: TextStyle(
+                fontSize: 28,
+                color: AppColors.blue,
+              ),
+            ),
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+            keyboardType: TextInputType.streetAddress,
+          ),
+          TextFormField(
+            controller: _cityController,
+            validator: _cityValidator,
+            decoration: const InputDecoration(
+              labelText: 'Cidade',
+              labelStyle: TextStyle(
+                fontSize: 28,
+                color: AppColors.blue,
+              ),
+            ),
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+            keyboardType: TextInputType.text,
+          ),
         ],
       ),
     );
@@ -218,6 +250,20 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
     if (value == user.cellPhone) {
       return 'Insira um telefone diferente do atual';
+    }
+    return null;
+  }
+
+  String? _streetValidator(value) {
+    if (value.length < 16 && value.isNotEmpty) {
+      return 'Preencha o campo corretamente';
+    }
+    return null;
+  }
+
+  String? _cityValidator(value) {
+    if (value.length < 16 && value.isNotEmpty) {
+      return 'Preencha o campo corretamente';
     }
     return null;
   }
