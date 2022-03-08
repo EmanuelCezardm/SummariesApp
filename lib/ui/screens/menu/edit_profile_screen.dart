@@ -22,10 +22,12 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   var mask = MaskTextInputFormatter(mask: "(##) 9 ####-####");
+  var maskCEP = MaskTextInputFormatter(mask: "#####-###");
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _cepController = TextEditingController();
 
   UserModel get user => widget.user;
 
@@ -115,6 +117,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               fontSize: 20,
             ),
           ),
+          const SizedBox(height: 8),
+          TextFormField(
+            enabled: false,
+            decoration: const InputDecoration(
+              disabledBorder: InputBorder.none,
+              labelText: 'CEP Atual',
+              labelStyle: TextStyle(
+                fontSize: 28,
+                color: AppColors.blue,
+              ),
+            ),
+            //initialValue: user.cellPhone,
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+          ),
           TextFormField(
             controller: _nameController,
             validator: _nameValidator,
@@ -145,6 +163,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             keyboardType: TextInputType.number,
             inputFormatters: [mask],
+          ),
+          TextFormField(
+            controller: _cepController,
+            validator: _cepValidator,
+            decoration: const InputDecoration(
+              labelText: 'Novo CEP',
+              labelStyle: TextStyle(
+                fontSize: 28,
+                color: AppColors.blue,
+              ),
+            ),
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+            keyboardType: TextInputType.number,
+            inputFormatters: [maskCEP],
           ),
         ],
       ),
@@ -218,6 +252,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
     if (value == user.cellPhone) {
       return 'Insira um telefone diferente do atual';
+    }
+    return null;
+  }
+
+  String? _cepValidator(value) {
+    if (value.length < 9 && value.isNotEmpty) {
+      return 'Preencha o campo corretamente';
     }
     return null;
   }
