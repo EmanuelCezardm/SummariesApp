@@ -174,6 +174,60 @@ class _ProfileScreenState extends State<ProfileScreen> {
           initialValue: user.email,
         ),
         const SizedBox(
+          height: 20,
+        ),
+        TextFormField(
+          enabled: false,
+          decoration: const InputDecoration(
+            prefixIcon: Icon(
+              Icons.assistant_navigation,
+              color: AppColors.blue,
+              size: 40,
+            ),
+            labelText: 'CEP',
+            labelStyle: TextStyle(
+              color: AppColors.blue,
+            ),
+          ),
+          //initialValue: user.cidade,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        TextFormField(
+          enabled: false,
+          decoration: const InputDecoration(
+            prefixIcon: Icon(
+              Icons.location_city,
+              color: AppColors.blue,
+              size: 40,
+            ),
+            labelText: 'Cidade',
+            labelStyle: TextStyle(
+              color: AppColors.blue,
+            ),
+          ),
+          //initialValue: user.cidade,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        TextFormField(
+          enabled: false,
+          decoration: const InputDecoration(
+            prefixIcon: Icon(
+              Icons.home_outlined,
+              color: AppColors.blue,
+              size: 40,
+            ),
+            labelText: 'Rua',
+            labelStyle: TextStyle(
+              color: AppColors.blue,
+            ),
+          ),
+          //initialValue: user.rua,
+        ),
+        const SizedBox(
           height: 40,
         ),
         SizedBox(
@@ -191,6 +245,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               );
             },
           ),
+        ),
+        const SizedBox(
+          height: 40,
         ),
       ],
     );
