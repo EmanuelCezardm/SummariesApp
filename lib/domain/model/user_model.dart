@@ -4,6 +4,7 @@ class UserModel {
   late String _emailUser;
   late String _passwordUser;
   late bool _isAdminUser;
+  late String _cepUser;
 
   UserModel(
     this._nameUser,
@@ -11,6 +12,7 @@ class UserModel {
     this._emailUser,
     this._passwordUser,
     this._isAdminUser,
+    this._cepUser,
   );
 
   String get name => _nameUser;
@@ -18,6 +20,7 @@ class UserModel {
   String get email => _emailUser;
   String get password => _passwordUser;
   bool get isAdmin => _isAdminUser;
+  String get cep => _cepUser;
 
   setName(String name) => _nameUser = name;
   setCellPhone(String phone) => _cellPhoneUser = phone;
@@ -28,6 +31,7 @@ class UserModel {
     _emailUser = json['email_usuario'];
     _passwordUser = json['senha_usuario'];
     _isAdminUser = json['admin_usuario'] == 1 ? true : false;
+    _cepUser = json['cep_usuario'];
   }
 
   Map<String, dynamic> toJson() {
@@ -37,6 +41,7 @@ class UserModel {
     data['email_usuario'] = _emailUser;
     data['senha_usuario'] = _passwordUser;
     data['admin_usuario'] = _isAdminUser == true ? 1 : 0;
+    data['cep_usuario'] = _cepUser;
     return data;
   }
 }

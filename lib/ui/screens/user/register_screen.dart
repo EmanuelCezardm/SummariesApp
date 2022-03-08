@@ -236,8 +236,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void _buildFunctionRegister() async {
     if (!_formKey.currentState!.validate()) return;
 
-    final user = UserModel(_nameController.text, _phoneController.text,
-        _emailController.text, _passwordController.text, false);
+    final user = UserModel(
+      _nameController.text,
+      _phoneController.text,
+      _emailController.text,
+      _passwordController.text,
+      false,
+      _cepController.text,
+    );
 
     final list = await UserDao().fetchUserByEmail(_emailController.text);
 
