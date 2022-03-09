@@ -5,6 +5,7 @@ import 'package:summaries_app/ui/screens/user/password_recovery_screen.dart';
 import 'package:summaries_app/ui/screens/user/register_screen.dart';
 import 'package:summaries_app/ui/screens/user/login_screen.dart';
 import 'package:summaries_app/ui/screens/splash/splash_screen.dart';
+import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/styles/app_theme.dart';
 
 void main() {
@@ -19,6 +20,12 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColors.blue,
+        systemNavigationBarColor: AppColors.blue,
+      ),
+    );
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

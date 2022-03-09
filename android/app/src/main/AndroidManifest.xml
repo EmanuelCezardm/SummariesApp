@@ -3,6 +3,8 @@
    <application
         android:label="SummariesApp"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBYaEMUWf1CM8XoX4yrc_pOQZngUuHJNYk"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:summaries_app/data/dao/usersdao.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
+import 'package:summaries_app/services/via_cep_service.dart';
 import 'package:summaries_app/ui/screens/menu/profile_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_app_bar.dart';
@@ -128,7 +129,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 color: AppColors.blue,
               ),
             ),
-            //initialValue: user.cellPhone,
+            initialValue: user.cep,
             style: const TextStyle(
               fontSize: 20,
             ),
@@ -260,31 +261,106 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     if (value.length < 9 && value.isNotEmpty) {
       return 'Preencha o campo corretamente';
     }
+    if (value == user.cep) {
+      return 'Insira um CEP diferente do atual';
+    }
     return null;
   }
 
-  _edit() async {
-    if (!_formKey.currentState!.validate()) return;
+  Future<bool> _cepConfirm(value) async {
+    String cep = value.replaceAll('-', '');
+    bool result = await ViaCepService.fetchCepToValidate(cep);
 
-    if (_nameController.text.isEmpty && _phoneController.text.isNotEmpty) {
-      UserDao().updateCellPhone(user.email, _phoneController.text);
-      user.setCellPhone(_phoneController.text);
-      _functionShowDialog(context, 'Telefone alterado com sucesso', 1);
-    } else if (_nameController.text.isNotEmpty &&
-        _phoneController.text.isEmpty) {
-      UserDao().updateName(user.email, _nameController.text);
-      user.setName(_nameController.text);
-      _functionShowDialog(context, 'Nome alterado com sucesso', 1);
-    } else if (_nameController.text.isNotEmpty &&
-        _phoneController.text.isNotEmpty) {
-      UserDao().updateCellPhone(user.email, _phoneController.text);
-      UserDao().updateName(user.email, _nameController.text);
-      user.setCellPhone(_phoneController.text);
-      user.setName(_nameController.text);
-      _functionShowDialog(context, 'Nome e Telefone alterados com sucesso', 1);
-    } else if (_nameController.text.isEmpty && _phoneController.text.isEmpty) {
+    if (result) {
+      return true;
+    }
+    return false;
+  }
+
+  _editCEP() async {
+    UserDao().updateCEP(user.email, _cepController.text);
+
+    user.setCep(_cepController.text);
+  }
+
+  _editName() async {
+    UserDao().updateName(user.email, _nameController.text);
+
+    user.setName(_nameController.text);
+  }
+
+  _editPhone() async {
+    UserDao().updateCellPhone(user.email, _phoneController.text);
+
+    user.setCellPhone(_phoneController.text);
+  }
+
+  _createmensage(List<int> list) {
+    if (list == []) {
       _functionShowDialog(context, 'Você não alterou nenhum valor', 0);
     }
+
+    if (list.length == 1) {
+      if (list[0] == 1) {
+        _editCEP();
+        _functionShowDialog(context, 'CEP alterado com sucesso', 1);
+      } else if (list[0] == 2) {
+        _editName();
+        _functionShowDialog(context, 'Nome alterado com sucesso', 1);
+      } else if (list[0] == 3) {
+        _editPhone();
+        _functionShowDialog(context, 'Telefone alterado com sucesso', 1);
+      }
+    }
+
+    if (list.length == 2) {
+      if (list[0] == 1 && list[1] == 2) {
+        _editCEP();
+        _editName();
+        _functionShowDialog(context, 'Nome e CEP alterados com sucesso', 1);
+      } else if (list[0] == 1 && list[1] == 3) {
+        _editCEP();
+        _editPhone();
+        _functionShowDialog(context, 'Telefone e CEP alterados com sucesso', 1);
+      } else if (list[0] == 2 && list[1] == 3) {
+        _editName();
+        _editPhone();
+        _functionShowDialog(
+            context, 'Nome e Telefone alterados com sucesso', 1);
+      }
+    }
+
+    if (list.length == 3) {
+      _editCEP();
+      _editName();
+      _editPhone();
+      _functionShowDialog(
+          context, 'Nome, Telefone e CEP alterados com sucesso', 1);
+    }
+  }
+
+  _edit() async {
+    List<int> list = [];
+    if (!_formKey.currentState!.validate()) return;
+
+    if (_cepController.text.isNotEmpty &&
+        await _cepConfirm(_cepController.text)) {
+      list.add(1);
+    } else if (_cepController.text.isNotEmpty &&
+        await _cepConfirm(_cepController.text) == false) {
+      _functionShowDialog(context, 'CEP Inválido digite um CEP válido', 0);
+      return;
+    }
+
+    if (_nameController.text.isNotEmpty) {
+      list.add(2);
+    }
+
+    if (_phoneController.text.isNotEmpty) {
+      list.add(3);
+    }
+
+    _createmensage(list);
   }
 
   _functionShowDialog(context, text, function) {

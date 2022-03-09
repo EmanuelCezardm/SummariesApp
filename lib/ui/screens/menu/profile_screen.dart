@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:summaries_app/domain/model/result_cep_model.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
+import 'package:summaries_app/services/via_cep_service.dart';
+import 'package:summaries_app/ui/screens/maps/maps_screen.dart';
 import 'package:summaries_app/ui/screens/menu/edit_profile_screen.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:summaries_app/ui/widgets/app_elevated_button.dart';
+import 'package:summaries_app/ui/widgets/app_text.dart';
 
 class ProfileScreen extends StatefulWidget {
   final UserModel user;
@@ -17,15 +21,27 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  late Future<ResultCepModel> resultCep;
+
   UserModel get user => widget.user;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchAdress();
+  }
+
+  fetchAdress() {
+    String cep = user.cep.replaceAll('-', '');
+    resultCep = ViaCepService.fetchCep(cep);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: _buildAppBar(context),
-      body: _buildBody(context),
-    );
+        backgroundColor: AppColors.white,
+        appBar: _buildAppBar(context),
+        body: _buildFutureBody());
   }
 
   AppBar _buildAppBar(BuildContext context) {
@@ -44,7 +60,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Container _buildBody(BuildContext context) {
+  _buildFutureBody() {
+    return FutureBuilder<ResultCepModel>(
+      future: resultCep,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return _buildBody(context, snapshot.data);
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
+    );
+  }
+
+  Container _buildBody(BuildContext context, data) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView(
@@ -61,9 +90,48 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const SizedBox(
             height: 35,
           ),
-          _buildForm(),
+          _buildMapAcess(context, data),
+          const SizedBox(
+            height: 25,
+          ),
+          _buildForm(data),
         ],
       ),
+    );
+  }
+
+  _buildMapAcess(BuildContext context, data) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MapsScreen(
+                  cepModel: data,
+                ),
+              ),
+            );
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: const [
+              Icon(
+                Icons.map_outlined,
+                color: AppColors.blue,
+                size: 32,
+              ),
+              AppText(
+                text: 'Navegue pelo mapa',
+                fontSize: 12,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 8),
+      ],
     );
   }
 
@@ -119,7 +187,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  _buildForm() {
+  _buildForm(data) {
     return Column(
       children: [
         TextFormField(
@@ -189,7 +257,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               color: AppColors.blue,
             ),
           ),
-          //initialValue: user.cidade,
+          initialValue: user.cep,
         ),
         const SizedBox(
           height: 20,
@@ -207,7 +275,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               color: AppColors.blue,
             ),
           ),
-          //initialValue: user.cidade,
+          initialValue: data.localidade,
         ),
         const SizedBox(
           height: 20,
@@ -225,7 +293,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               color: AppColors.blue,
             ),
           ),
-          //initialValue: user.rua,
+          initialValue: data.logradouro,
         ),
         const SizedBox(
           height: 40,
