@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:summaries_app/data/dao/usersdao.dart';
 import 'package:summaries_app/data/shared_preferences_helper.dart';
 import 'package:summaries_app/ui/screens/main/home_screen.dart';
@@ -24,6 +25,12 @@ class _LoginScreenState extends State<LoginScreen> {
   get onPressed => null;
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColors.blue,
+        systemNavigationBarColor: Colors.black,
+      ),
+    );
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.blue,

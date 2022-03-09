@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:summaries_app/data/dao/usersdao.dart';
 import 'package:summaries_app/data/shared_preferences_helper.dart';
 import 'package:summaries_app/ui/screens/main/home_screen.dart';
@@ -20,6 +21,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColors.blue,
+        systemNavigationBarColor: Colors.black,
+      ),
+    );
     return Container(
       color: AppColors.background,
       child: Center(

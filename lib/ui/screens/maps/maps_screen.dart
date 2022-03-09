@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:summaries_app/domain/model/result_cep_model.dart';
 import 'package:summaries_app/domain/model/result_position_stack_model.dart';
 import 'package:summaries_app/services/position_stack_service.dart';
-import 'package:summaries_app/services/via_cep_service.dart';
+import 'package:summaries_app/ui/widgets/app_app_bar.dart';
 
 class MapsScreen extends StatefulWidget {
   final ResultCepModel cepModel;
@@ -37,8 +37,14 @@ class _MapsScreenState extends State<MapsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _buildFutureBody(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppAppBar(
+          title: 'Map',
+          size: MediaQuery.of(context).size,
+        ),
+        body: _buildFutureBody(),
+      ),
     );
   }
 
@@ -47,7 +53,6 @@ class _MapsScreenState extends State<MapsScreen> {
       future: positionStackModel,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
           return _buildMap(snapshot.data);
         } else {
           return const Center(child: CircularProgressIndicator());
@@ -61,7 +66,7 @@ class _MapsScreenState extends State<MapsScreen> {
       mapType: MapType.normal,
       initialCameraPosition: CameraPosition(
         target: LatLng(latLng.latitude, latLng.longitude),
-        zoom: 14.4746,
+        zoom: 15,
       ),
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);

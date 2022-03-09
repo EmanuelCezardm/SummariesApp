@@ -24,6 +24,7 @@ class UserModel {
 
   setName(String name) => _nameUser = name;
   setCellPhone(String phone) => _cellPhoneUser = phone;
+  setCep(String cep) => _cepUser = cep;
 
   UserModel.fromJson(Map json) {
     _nameUser = json['nome_usuario'];

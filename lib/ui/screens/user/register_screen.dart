@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:summaries_app/data/dao/usersdao.dart';
 import 'package:summaries_app/domain/model/user_model.dart';
+import 'package:summaries_app/services/via_cep_service.dart';
 import 'package:summaries_app/ui/styles/app_colors.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:summaries_app/ui/widgets/app_elevated_icon_button.dart';
@@ -233,8 +234,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
+  Future<bool> _cepConfirm(value) async {
+    String cep = value.replaceAll('-', '');
+    bool result = await ViaCepService.fetchCepToValidate(cep);
+
+    if (result) {
+      return true;
+    }
+    return false;
+  }
+
   void _buildFunctionRegister() async {
     if (!_formKey.currentState!.validate()) return;
+
+    if (!await _cepConfirm(_cepController.text)) {
+      _functionShowDialog(
+        context,
+        'Digite um CEP Válido.',
+        () {
+          Navigator.pop(context);
+        },
+      );
+      return;
+    }
 
     final user = UserModel(
       _nameController.text,
